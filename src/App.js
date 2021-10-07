@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react'
+import NavBar from './Components/NavBar/NavBar'
 import './App.css';
 
+const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`
+
 function App() {
+
+  const getRecipes = () => {
+
+    fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=10&addRecipeInformation=true&ignorePantry=false&instructionsRequired=true&fillIngredients=true&`
+
+      // This will be the API call whenwe have preferences and ingredients to filter
+      // `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=10&addRecipeInformation=true&ignorePantry=false&query=${ingredients}&instructionsRequired=true&fillIngredients=true&diet=${diet}&intolerances=${allergies}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.results)
+      })
+      .catch(() => {
+        console.log("error")
+      }) 
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <button onClick={getRecipes}>Click for recipes</button>
     </div>
   );
 }

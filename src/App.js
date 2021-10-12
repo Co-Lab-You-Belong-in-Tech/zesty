@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
-import NavBar from './Components/NavBar/NavBar'
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import NavBar from "./Components/NavBar/NavBar";
+import Home from "./Pages/Home";
+import MealList from "./Pages/MealList";
+import ShoppingList from "./Pages/ShoppingList";
+import Preferences from "./Pages/Preferences";
+import "./App.css";
 
-const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`
+const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`;
 
 function App() {
-
   const getRecipes = () => {
-
     fetch(
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=10&addRecipeInformation=true&ignorePantry=false&instructionsRequired=true&fillIngredients=true&`
 
@@ -16,16 +19,24 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.results)
+        console.log(data.results);
       })
       .catch(() => {
-        console.log("error")
-      }) 
-  }
+        console.log("error");
+      });
+  };
 
   return (
     <div className="App">
-      <NavBar />
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/meal-list" component={MealList} />
+          <Route path="/shopping-list" component={ShoppingList} />
+          <Route path="/preferences" component={Preferences} />
+        </Switch>
+      </Router>
       <button onClick={getRecipes}>Click for recipes</button>
     </div>
   );

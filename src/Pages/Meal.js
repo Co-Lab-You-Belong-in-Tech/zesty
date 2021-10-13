@@ -1,6 +1,7 @@
 import React from 'react';
 import MealPageImage from '../Components/MealPageImage/MealPageImage';
 import MealHeader from '../Components/MealHeader/MealHeader';
+import MealTabs from '../Components/MealTabs/MealTabs'
 
 
 function Meal() {
@@ -8,6 +9,7 @@ function Meal() {
         <div>
             <MealPageImage />
             <MealHeader />
+            <MealTabs />
         </div>
     );
 };

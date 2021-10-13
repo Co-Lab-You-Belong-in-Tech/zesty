@@ -1,13 +1,14 @@
 import React from 'react'
 import Title from '../Title/Title'
+import Subtitle from '../Subtitle/Subtitle'
 import './MealHeader.css'
 
 function MealHeader() {
     return (
         <div className="meal-header">
             <Title title="Soba Noodle Salad" />
-            <h3>Total Time: 15min</h3>
-            <h3>Servings: 4</h3>
+            <Subtitle text="Total Time: 15min" />
+            <Subtitle text="Servings: 4" />
         </div>
     )
 }

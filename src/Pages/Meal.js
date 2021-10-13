@@ -9,7 +9,7 @@ function Meal() {
             <MealPageImage />
             <MealHeader />
         </div>
-    )
-}
+    );
+};
 
-export default Meal
+export default Meal;

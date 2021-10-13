@@ -1,11 +1,11 @@
 // this can be used for any title in app, has same styling
-import React from 'react'
-import './Title.css'
+import React from 'react';
+import './Title.css';
 
 function Title({ title }) {
     return (
         <h2 className="title">{title}</h2>
-    )
-}
+    );
+};
 
-export default Title
+export default Title;

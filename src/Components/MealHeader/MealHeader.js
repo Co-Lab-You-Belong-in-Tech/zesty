@@ -1,7 +1,7 @@
-import React from 'react'
-import Title from '../Title/Title'
-import Subtitle from '../Subtitle/Subtitle'
-import './MealHeader.css'
+import React from 'react';
+import Title from '../Title/Title';
+import Subtitle from '../Subtitle/Subtitle';
+import './MealHeader.css';
 
 function MealHeader() {
     return (
@@ -10,7 +10,7 @@ function MealHeader() {
             <Subtitle text="Total Time: 15min" />
             <Subtitle text="Servings: 4" />
         </div>
-    )
-}
+    );
+};
 
-export default MealHeader
+export default MealHeader;

@@ -1,0 +1,18 @@
+.meal-info,
+.ingredients,
+.directions {
+  text-align: left;
+  font-size: 0.813rem;
+  line-height: 20px;
+  color: #4f4f4f;
+  font-family: "Montserrat", sans-serif;
+}
+
+.ingredients,
+.directions {
+  margin: 0;
+  padding: 0 0 0 14px;
+}
+
+/* we should ask Wendy if we need space in between 
+   each ingredient/direction */

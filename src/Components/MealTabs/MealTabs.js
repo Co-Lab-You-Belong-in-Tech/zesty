@@ -4,13 +4,26 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
+import './MealTabs.css'
 
-function MealTabs() {
+function MealTabs({ summary, ingredients, directions }) {
     const [value, setValue] = React.useState('1');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    const getIngredients = ingredients.map((ingredient, index) => {
+        return (
+            <li key={index}>{ingredient}</li>
+        )
+      })
+
+      const getDirections = directions.map((direction, index) => {
+        return (
+            <li key={index}>{direction}</li>
+        )
+    })
 
     return (
         <Box sx={{ width: '100%', typography: 'body1' }}>
@@ -23,16 +36,20 @@ function MealTabs() {
                 </TabList>
                 </Box>
                 <TabPanel value="1">
-                    Meal Info
+                    <div className="meal-info">{summary}</div>
                 </TabPanel>
                 <TabPanel value="2">
-                    Ingredients
+                    <ul className="ingredients">
+                        {getIngredients}
+                    </ul>
                 </TabPanel>
                 <TabPanel value="3">
-                    Directions
+                    <ol className="directions">
+                        {getDirections}
+                    </ol>
                 </TabPanel>
             </TabContext>
-    </Box>
+        </Box>
     );
 };
 

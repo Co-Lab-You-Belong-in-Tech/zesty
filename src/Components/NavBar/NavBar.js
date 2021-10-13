@@ -39,6 +39,7 @@ function NavBar() {
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
+    // I think we can delete the nav here - check with Blake
     <nav className="nav-bar">
       <AppBar position="static">
         <CssBaseline />

@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import MealPageImage from '../Components/MealPageImage/MealPageImage'
+
 
 function Meal() {
     return (
         <div>
-            This is a meal page
+            <MealPageImage />
         </div>
     )
 }

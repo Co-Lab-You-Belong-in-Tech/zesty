@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import MealList from "./Pages/MealList";
 import ShoppingList from "./Pages/ShoppingList";
 import Preferences from "./Pages/Preferences";
+import Meal from "./Pages/Meal";
 import "./App.css";
 
 const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`;
@@ -35,6 +36,8 @@ function App() {
           <Route path="/meal-list" component={MealList} />
           <Route path="/shopping-list" component={ShoppingList} />
           <Route path="/preferences" component={Preferences} />
+          {/* why isn't this showing in drawer? */}
+          <Route path="/meal" component={Meal} />
         </Switch>
       </Router>
       <button onClick={getRecipes}>Click for recipes</button>

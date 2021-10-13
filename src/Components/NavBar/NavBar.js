@@ -59,6 +59,9 @@ function NavBar() {
               <Link to="/faq" className={classes.link}>
                 Preferences
               </Link>
+              <Link to="/meal" className={classes.link}>
+                Meal
+              </Link>
             </div>
           )}
           <Typography variant="h4" className={classes.logo}>

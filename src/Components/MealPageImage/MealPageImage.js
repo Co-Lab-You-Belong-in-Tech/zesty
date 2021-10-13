@@ -3,9 +3,7 @@ import example from '../../meal-example.png'
 
 function MealPageImage() {
     return (
-        <div>
-            <img alt="" src={example} />
-        </div>
+        <img alt="" src={example} />
     );
 };
 

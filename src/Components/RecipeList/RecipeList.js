@@ -1,9 +1,9 @@
 import React from "react";
 import Recipe from "../Recipe/Recipe";
 
-export default function RecipeList({ recipeData }) {
+function RecipeList({ recipeData }) {
   return (
-    <div className="recipe-list">
+    <main>
       {recipeData.map((recipe) => {
         return (
           <Recipe
@@ -19,6 +19,8 @@ export default function RecipeList({ recipeData }) {
           />
         );
       })}
-    </div>
+    </main>
   );
 }
+
+export default RecipeList;

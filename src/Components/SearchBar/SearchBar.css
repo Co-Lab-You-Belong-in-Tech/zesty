@@ -1,0 +1,25 @@
+section {
+  background: white;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 10%);
+  margin: 20px 0;
+}
+
+input {
+  width: 75%;
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+button {
+  border-radius: 6px;
+  padding: 4px 10px;
+  margin: 5px;
+}
+.hint {
+  font-size: 11px;
+  margin-top: 10px;
+}

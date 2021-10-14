@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import RecipeList from "../RecipeList/RecipeList";
+import "./SearchBar.css";
 
 const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`;
 
 export default function SearchBar() {
   const [recipes, setRecipes] = useState([]);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("chocolate");
 
   function search(event) {
     event.preventDefault();
@@ -34,12 +35,12 @@ export default function SearchBar() {
       <div className="search-bar">
         <form onSubmit={search}>
           <input
-            type="search"
+            type="text"
             placeholder="Search recipes..."
             onChange={handleQueryChange}
             autoFocus={true}
           />
-          <button type="submit" variant="contained" onClick={getRecipes}>
+          <button variant="contained" onClick={getRecipes}>
             Search
           </button>
         </form>

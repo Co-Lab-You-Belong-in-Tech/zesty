@@ -1,4 +1,5 @@
 import React from "react";
+import "./Recipe.css";
 
 function Recipe({ image, title, diets, time, servings }) {
   const displayDiets = diets.map((diet) => {
@@ -6,12 +7,14 @@ function Recipe({ image, title, diets, time, servings }) {
   });
 
   return (
-    <div>
-      <img alt="" src={image} />
-      <h4>{title}</h4>
-      <ul>{displayDiets}</ul>
-      <h5>Total time: {time} minutes</h5>
-      <h5>Servings: {servings}</h5>
+    <div className="recipe">
+      <section classname="recipe-card">
+        <img src={image} alt={title} />
+        <h4>{title}</h4>
+        <ul>{displayDiets}</ul>
+        <h5>Total time: {time} minutes</h5>
+        <h5>Servings: {servings}</h5>
+      </section>
     </div>
   );
 }

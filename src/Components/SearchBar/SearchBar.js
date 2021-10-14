@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import RecipeList from "../RecipeList/RecipeList";
+import "./SearchBar.css";
 
 const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`;
 
 export default function SearchBar() {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState("");
+  let [loaded, setLoaded] = useState(false);
 
-  function search(event) {
+  function handleSubmit(event) {
     event.preventDefault();
+    getRecipes();
   }
 
   function handleQueryChange(event) {
@@ -29,22 +32,35 @@ export default function SearchBar() {
       });
   };
 
-  return (
-    <>
-      <div className="search-bar">
-        <form onSubmit={search}>
-          <input
-            type="search"
-            placeholder="Search recipes..."
-            onChange={handleQueryChange}
-            autoFocus={true}
-          />
-          <button type="submit" variant="contained" onClick={getRecipes}>
-            Search
-          </button>
-        </form>
-      </div>
-      <RecipeList recipeData={recipes} />
-    </>
-  );
+  function load() {
+    setLoaded(true);
+    getRecipes();
+  }
+
+  if (loaded) {
+    return (
+      <>
+        <div className="search-bar">
+          <section>
+            <h2>What would you like to eat this week?</h2>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="search"
+                placeholder="Type an ingredient or cuisine..."
+                onChange={handleQueryChange}
+                autoFocus={true}
+              />
+            </form>
+            <div className="hint">Suggested: tacos, chocolate, potatoes..</div>
+          </section>
+        </div>
+        <section>
+          <RecipeList recipeData={recipes} />
+        </section>
+      </>
+    );
+  } else {
+    load();
+    return "Loading...";
+  }
 }

@@ -8,14 +8,14 @@ section {
 input {
   width: 75%;
   border-radius: 6px;
-  padding: 6px 10px;
+  padding: 8px 10px;
   color: #333;
   border: 1px solid #ddd;
 }
 
 button {
   border-radius: 6px;
-  padding: 4px 10px;
+  padding: 6px 10px;
   margin: 5px;
 }
 .hint {

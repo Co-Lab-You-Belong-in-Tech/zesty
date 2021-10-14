@@ -6,8 +6,7 @@ const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`;
 
 export default function SearchBar() {
   const [recipes, setRecipes] = useState([]);
-  const [query, setQuery] = useState("chocolate");
-
+  const [query, setQuery] = useState("");
   function search(event) {
     event.preventDefault();
   }
@@ -39,11 +38,10 @@ export default function SearchBar() {
             placeholder="Search recipes..."
             onChange={handleQueryChange}
             autoFocus={true}
-            onClick={getRecipes}
           />
-          {/* <button variant="contained" onClick={getRecipes}>
-            Search
-          </button> */}
+          <button variant="contained" onClick={getRecipes}>
+            Get Recipes
+          </button>
         </form>
       </section>
       <RecipeList recipeData={recipes} />

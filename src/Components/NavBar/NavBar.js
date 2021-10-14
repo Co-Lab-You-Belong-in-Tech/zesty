@@ -51,18 +51,15 @@ function NavBar() {
               <Link to="/" className={classes.link}>
                 Home
               </Link>
-              <Link to="/about" className={classes.link}>
+              <Link to="/meal-list" className={classes.link}>
                 Meal List
               </Link>
-              <Link to="/contact" className={classes.link}>
+              <Link to="/grocery-list" className={classes.link}>
                 Shopping List
               </Link>
-              <Link to="/faq" className={classes.link}>
+              <Link to="/preferences" className={classes.link}>
                 Preferences
-              </Link>
-              <Link to="/meal" className={classes.link}>
-                Meal
-              </Link>
+              </Link>              
             </div>
           )}
           <Typography variant="h4" className={classes.logo}>

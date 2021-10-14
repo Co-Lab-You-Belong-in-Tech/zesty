@@ -36,8 +36,7 @@ function App() {
           <Route path="/meal-list" component={MealList} />
           <Route path="/shopping-list" component={ShoppingList} />
           <Route path="/preferences" component={Preferences} />
-          {/* why isn't this showing in drawer? */}
-          <Route path="/meal" component={Meal} />
+          <Route path="/meal/:id" component={Meal} />
         </Switch>
       </Router>
       <button onClick={getRecipes}>Click for recipes</button>

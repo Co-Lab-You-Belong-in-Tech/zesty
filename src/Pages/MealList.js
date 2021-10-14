@@ -1,7 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 function MealList() {
-  return <nav className="meal-list">This is the Meal List</nav>;
-}
+  const mealId = 635807;
+
+  return (
+    <div className="meal-list">
+      <Link to={`/meal/${mealId}`}>See this meal</Link>
+    </div>
+  );
+};
 
 export default MealList;

@@ -1,9 +1,8 @@
 import React from 'react';
-import example from '../../meal-example.png'
 
-function MealPageImage() {
+function MealPageImage({ src }) {
     return (
-        <img alt="" src={example} />
+        <img alt="" src={src} />
     );
 };
 

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
 import MealPageImage from '../Components/MealPageImage/MealPageImage';
 import MealHeader from '../Components/MealHeader/MealHeader';
 import MealTabs from '../Components/MealTabs/MealTabs';
+
+const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`
 
 const exampleIngredients = [
     "7 oz dried soba noodles (buckwheat noodles) (2-3 bundles)",
@@ -27,9 +30,27 @@ const exampleDirections = [
 ]
 
 function Meal() {
+    const [ meal, setMeal ] = useState([])
+    let {id} = useParams();
+
+    useEffect(() => {
+        fetch(
+            `https://api.spoonacular.com/recipes/informationBulk?ids=${id}&includeNutrition=false&apiKey=${apiKey}`
+        )
+        .then((response) => response.json())
+        .then((data) => {
+            setMeal(data[0])
+            console.log(data[0])
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }, [id]) 
+
+
     return (
         <div>
-            <MealPageImage />
+            <MealPageImage src={meal.image} />
             <MealHeader />
             <MealTabs 
                 summary="This recipe was originally published in May 2013 and it’s been one of the most popular recipes on Just One Cookbook. This Soba Noodle Salad recipe is the perfect blank slate for customization. If you like it spicy, add more crushed chili pepper. You can also add thin strips of cucumbers and carrots to make the salad into a main dish instead of a side dish. For extra protein and substance, a hard-boiled egg or leftover grilled tofu makes a great addition too. A few tips: Soba noodles cook much faster than spaghetti noodles so this noodle salad can be completed in a very short time. It’s important to drain the noodles well and run it under cold water. This helps to remove any starch from the noodles. You can prepare the dressing ahead of time but I don’t recommend tossing everything together until you are ready to serve, or else soba noodles will absorb the dressing and become soggy. If you or your children don’t eat spicy food at all, you can omit the crushed red peppers." 
@@ -42,5 +63,3 @@ function Meal() {
 
 export default Meal;
 
-// left off:
-// adding things into MealTabs

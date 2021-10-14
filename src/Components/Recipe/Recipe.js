@@ -1,17 +1,15 @@
 import React from "react";
+import "./Recipe.css";
 
-function Recipe({ image, title, diets, time, servings }) {
-  const displayDiets = diets.map((diet) => {
-    return <li>{diet}</li>;
-  });
-
+function Recipe({ image, title }) {
   return (
-    <div>
-      <img alt="" src={image} />
-      <h4>{title}</h4>
-      <ul>{displayDiets}</ul>
-      <h5>Total time: {time} minutes</h5>
-      <h5>Servings: {servings}</h5>
+    <div className="recipe-card">
+      <div className="recipe-image">
+        <img alt={title} src={image} />
+      </div>
+      <div className="recipe-title">
+        <h4>{title}</h4>
+      </div>
     </div>
   );
 }

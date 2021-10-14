@@ -32,19 +32,20 @@ export default function SearchBar() {
 
   return (
     <>
-      <div className="search-bar">
+      <section className="search-bar">
         <form onSubmit={search}>
           <input
             type="text"
             placeholder="Search recipes..."
             onChange={handleQueryChange}
             autoFocus={true}
+            onClick={getRecipes}
           />
-          <button variant="contained" onClick={getRecipes}>
+          {/* <button variant="contained" onClick={getRecipes}>
             Search
-          </button>
+          </button> */}
         </form>
-      </div>
+      </section>
       <RecipeList recipeData={recipes} />
     </>
   );

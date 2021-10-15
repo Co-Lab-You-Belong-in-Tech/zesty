@@ -27,10 +27,8 @@ function Meal() {
         })
     }, [id]) 
 
-
-
     return (
-        <div>
+        <main>
             <MealPageImage src={meal.image} />
             <MealHeader 
                 title={meal.title}
@@ -42,7 +40,7 @@ function Meal() {
                 ingredients={ingredients}
                 directions={directions}
             />
-        </div>
+        </main>
     );
 };
 

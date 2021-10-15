@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -7,22 +7,27 @@ import TabPanel from '@mui/lab/TabPanel';
 import './MealTabs.css'
 
 function MealTabs({ summary, ingredients, directions }) {
-    const [value, setValue] = React.useState('1');
+    const [value, setValue] = useState('1');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
+    const createMarkup = () => {
+        return {__html: `${summary}`}
+    }
+
     const getIngredients = ingredients.map((ingredient, index) => {
         return (
-            <li key={index}>{ingredient}</li>
+            <li key={index}>{ingredient.original}</li>
         )
       })
 
-      const getDirections = directions.map((direction, index) => {
+      const getSteps = directions.map((step) => {
         return (
-            <li key={index}>{direction}</li>
+             <li key={step.step}>{step.step}</li>
         )
+        
     })
 
     return (
@@ -36,7 +41,7 @@ function MealTabs({ summary, ingredients, directions }) {
                 </TabList>
                 </Box>
                 <TabPanel value="1">
-                    <div className="meal-info">{summary}</div>
+                    <div className="meal-info" dangerouslySetInnerHTML={createMarkup()} />
                 </TabPanel>
                 <TabPanel value="2">
                     <ul className="ingredients">
@@ -45,7 +50,7 @@ function MealTabs({ summary, ingredients, directions }) {
                 </TabPanel>
                 <TabPanel value="3">
                     <ol className="directions">
-                        {getDirections}
+                        {getSteps}
                     </ol>
                 </TabPanel>
             </TabContext>

@@ -1,16 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
 
 function MealList() {
-  const mealId = 635807;
-
   return (
     <div className="meal-list">
-      <Link to={`/meal/${mealId}`}>See this meal</Link>
+      This is the Meal List page
     </div>
   );
 };
-
 
 export default MealList;

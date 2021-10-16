@@ -1,5 +1,5 @@
 import React from 'react';
-import './MealPageImage.css'
+import './MealPageImage.css';
 
 function MealPageImage({ src }) {
     return (

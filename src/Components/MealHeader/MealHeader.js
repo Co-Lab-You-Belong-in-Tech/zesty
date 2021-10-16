@@ -7,8 +7,8 @@ function MealHeader({ title, time, servings, diets }) {
     const displayDiets = diets.map((diet) => {
         return (
             <p className="diet">{diet}</p>
-        )
-    })
+        );
+    });
 
     return (
         <section className="meal-header">

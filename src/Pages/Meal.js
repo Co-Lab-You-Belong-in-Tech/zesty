@@ -4,13 +4,13 @@ import MealPageImage from '../Components/MealPageImage/MealPageImage';
 import MealHeader from '../Components/MealHeader/MealHeader';
 import MealTabs from '../Components/MealTabs/MealTabs';
 
-const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`
+const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`;
 
 function Meal() {
-    const [ meal, setMeal ] = useState([])
-    const [ ingredients, setIngredients ] = useState([])
-    const [ directions, setDirections ] = useState([])
-    const [ diets, setDiets ] = useState([])
+    const [ meal, setMeal ] = useState([]);
+    const [ ingredients, setIngredients ] = useState([]);
+    const [ directions, setDirections ] = useState([]);
+    const [ diets, setDiets ] = useState([]);
     let {id} = useParams();
 
     useEffect(() => {
@@ -26,8 +26,8 @@ function Meal() {
         })
         .catch((error) => {
             console.log(error)
-        })
-    }, [id]) 
+        });
+    }, [id]);
 
     return (
         <main>

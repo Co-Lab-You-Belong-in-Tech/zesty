@@ -12,4 +12,5 @@ function MealList() {
   );
 };
 
+
 export default MealList;

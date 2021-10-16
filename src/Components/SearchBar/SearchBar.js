@@ -10,7 +10,8 @@ export default function SearchBar() {
 
   useEffect(() => {
     getRecipes();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); 
 
   function search(event) {
     event.preventDefault();

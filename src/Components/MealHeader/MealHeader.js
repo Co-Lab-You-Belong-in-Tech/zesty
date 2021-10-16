@@ -5,11 +5,11 @@ import './MealHeader.css';
 
 function MealHeader({ title, time, servings }) {
     return (
-        <header className="meal-header">
+        <section className="meal-header">
             <Title title={title} />
             <Subtitle text={`Ready in ${time} min`} />
             <Subtitle text={`Servings: ${servings}`} />
-        </header>
+        </section>
     );
 };
 

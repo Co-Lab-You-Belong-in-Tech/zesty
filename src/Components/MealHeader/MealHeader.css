@@ -4,6 +4,10 @@
   color: #4f4f4f;
   font-family: "Montserrat", sans-serif;
   padding-left: 18px;
-  width: 414px;
-  margin: 0 auto;
+}
+
+@media screen and (min-width: 600px) {
+  .meal-header {
+    width: 600px;
+  }
 }

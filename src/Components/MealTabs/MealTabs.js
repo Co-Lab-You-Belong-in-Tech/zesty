@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { makeStyles } from '@mui/styles';
+import { createTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -7,6 +9,29 @@ import TabPanel from '@mui/lab/TabPanel';
 import './MealTabs.css'
 
 function MealTabs({ summary, ingredients, directions }) {
+    const tabTheme = createTheme({
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 600,
+                md: 900,
+                lg: 1200,
+                xl: 1536,
+            }
+        }
+    })
+    
+    const useStyles = makeStyles(() => ({
+        tabs: {
+            [tabTheme.breakpoints.up("sm")]: {
+                width: 600,
+                margin: 'auto'
+            }
+        }
+    }))
+
+    const classes = useStyles()
+
     const [value, setValue] = useState('1');
 
     const handleChange = (event, newValue) => {
@@ -30,8 +55,12 @@ function MealTabs({ summary, ingredients, directions }) {
         
     })
 
+    // see if you can change font family
+    // pull develop and merge
+    // connect Meal page to Home page RecipeCard
+
     return (
-        <Box sx={{ width: '100%', typography: 'body1' }}>
+        <Box className={classes.tabs} >
             <TabContext value={value}>
                 <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <TabList onChange={handleChange} aria-label="lab API tabs example">

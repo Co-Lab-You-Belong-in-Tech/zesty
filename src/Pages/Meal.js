@@ -10,6 +10,7 @@ function Meal() {
     const [ meal, setMeal ] = useState([])
     const [ ingredients, setIngredients ] = useState([])
     const [ directions, setDirections ] = useState([])
+    const [ diets, setDiets ] = useState([])
     let {id} = useParams();
 
     useEffect(() => {
@@ -21,6 +22,7 @@ function Meal() {
             setMeal(data[0])
             setIngredients(data[0].extendedIngredients)
             setDirections(data[0].analyzedInstructions[0].steps)
+            setDiets(data[0].diets)
         })
         .catch((error) => {
             console.log(error)
@@ -34,6 +36,7 @@ function Meal() {
                 title={meal.title}
                 time={meal.readyInMinutes}
                 servings={meal.servings}
+                diets={diets}
             />
             <MealTabs 
                 summary={meal.summary} 

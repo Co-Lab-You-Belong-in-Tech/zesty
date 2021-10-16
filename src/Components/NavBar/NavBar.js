@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import DrawerComponent from "../Drawer/Drawer";
-import ZestyLogo from '../../logo.png'
+// import ZestyLogo from '../../logo.png'
 import "./NavBar.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -64,7 +64,8 @@ function NavBar() {
             </div>
           )}
           <Typography variant="h4" className={classes.logo}>
-            <img className="logo" src={ZestyLogo} alt="" />
+            {/* <img className="logo" src={ZestyLogo} alt="" /> */}
+            Zesty
           </Typography>
         </Toolbar>
       </AppBar>

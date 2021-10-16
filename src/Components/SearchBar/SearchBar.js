@@ -27,7 +27,6 @@ export default function SearchBar() {
       .then((response) => response.json())
       .then((data) => {
         setRecipes(data.results);
-        console.log(data);
       })
       .catch((error) => {
         console.log(error);

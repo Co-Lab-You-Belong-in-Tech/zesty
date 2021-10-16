@@ -11,7 +11,6 @@ import {
 import { Link } from "react-router-dom";
 import DrawerComponent from "../Drawer/Drawer";
 // import ZestyLogo from '../../logo.png'
-import "./NavBar.css";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {

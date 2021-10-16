@@ -7,7 +7,7 @@ function RecipeList({ recipeData }) {
     <main>
       {recipeData.map((recipe) => {
         return (
-          <Link to={`/meal/${recipe.id}`}>
+          <Link key={recipe.id} to={`/meal/${recipe.id}`}>
             <Recipe
               key={recipe.id}
               title={recipe.title}

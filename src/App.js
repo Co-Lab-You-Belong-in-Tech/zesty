@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import MealList from "./Pages/MealList";
 import ShoppingList from "./Pages/ShoppingList";
 import Preferences from "./Pages/Preferences";
+import Meal from "./Pages/Meal";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/meal-list" component={MealList} />
           <Route path="/shopping-list" component={ShoppingList} />
           <Route path="/preferences" component={Preferences} />
+          <Route path="/meal/:id" component={Meal} />
         </Switch>
       </Router>
     </div>

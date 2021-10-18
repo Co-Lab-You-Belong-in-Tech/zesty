@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import DrawerComponent from "../Drawer/Drawer";
-//import "./Navbar.css";
+// import ZestyLogo from '../../logo.png'
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {
@@ -39,6 +39,7 @@ function NavBar() {
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   return (
+    // I think we can delete the nav here - check with Blake
     <nav className="nav-bar">
       <AppBar position="static">
         <CssBaseline />
@@ -50,18 +51,19 @@ function NavBar() {
               <Link to="/" className={classes.link}>
                 Home
               </Link>
-              <Link to="/about" className={classes.link}>
+              <Link to="/meal-list" className={classes.link}>
                 Meal List
               </Link>
-              <Link to="/contact" className={classes.link}>
+              <Link to="/grocery-list" className={classes.link}>
                 Shopping List
               </Link>
-              <Link to="/faq" className={classes.link}>
+              <Link to="/preferences" className={classes.link}>
                 Preferences
-              </Link>
+              </Link>              
             </div>
           )}
           <Typography variant="h4" className={classes.logo}>
+            {/* <img className="logo" src={ZestyLogo} alt="" /> */}
             Zesty
           </Typography>
         </Toolbar>

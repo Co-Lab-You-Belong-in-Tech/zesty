@@ -5,6 +5,30 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+import { servingRange } from "../utils/servingRange";
+import { maxTimeOptions } from "../utils/maxTimeOptions";
+import { allergyOptions } from "../utils/allergyOptions";
+import { dietOptions } from "../utils/dietOptions";
+
+const accordianObject = {
+  panel1: {
+    expanded: 'panel1',
+    title: 'Serving Size',
+  },
+  panel2: {
+    expanded: 'panel2',
+    title: 'Total Time',
+  },
+  panel3: {
+    expanded: 'panel3',
+    title: 'Allergies',
+  },
+  panel4: {
+    expanded: 'panel4',
+    title: 'Special Diet',
+  }
+}
+
 function Preferences() {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -14,75 +38,77 @@ function Preferences() {
 
   return (
     <div>
-      <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+      <Accordion expanded={expanded === accordianObject.panel1.expanded} onChange={handleChange('panel1')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
           <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            General settings
+            {accordianObject.panel1.title}
           </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>I am an accordion</Typography>
+          <Typography sx={{ color: 'text.secondary' }}>2 servings</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
+            radio buttons will go here
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+      <Accordion expanded={expanded === accordianObject.panel2.expanded} onChange={handleChange('panel2')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2bh-content"
           id="panel2bh-header"
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>Users</Typography>
+          <Typography sx={{ width: '33%', flexShrink: 0 }}>
+            {accordianObject.panel2.title}
+          </Typography>
           <Typography sx={{ color: 'text.secondary' }}>
-            You are currently not an owner
+            30 minutes
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus,
-            varius pulvinar diam eros in elit. Pellentesque convallis laoreet
-            laoreet.
+            radio buttons will go here
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+      <Accordion expanded={expanded === accordianObject.panel3.expanded} onChange={handleChange('panel3')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel3bh-content"
           id="panel3bh-header"
         >
           <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            Advanced settings
+            {accordianObject.panel3.title}
           </Typography>
           <Typography sx={{ color: 'text.secondary' }}>
-            Filtering has been entirely disabled for whole web server
+            dairy, eggs
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit
-            amet egestas eros, vitae egestas augue. Duis vel est augue.
+            checkboxes will go here
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+      <Accordion expanded={expanded === accordianObject.panel4.expanded} onChange={handleChange('panel4')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel4bh-content"
           id="panel4bh-header"
         >
-          <Typography sx={{ width: '33%', flexShrink: 0 }}>Personal data</Typography>
+          <Typography sx={{ width: '33%', flexShrink: 0 }}>
+            {accordianObject.panel4.title}
+          </Typography>
+          <Typography sx={{ color: 'text.secondary' }}>
+            Vegan
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit
-            amet egestas eros, vitae egestas augue. Duis vel est augue.
+            radio buttons will go here
           </Typography>
         </AccordionDetails>
       </Accordion>

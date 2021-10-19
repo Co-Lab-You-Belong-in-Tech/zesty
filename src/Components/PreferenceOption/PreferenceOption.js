@@ -5,9 +5,11 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-// lets try putting this in Preferences page
+import RadioOption from '../RadioOption/RadioOption'
 
-function PreferenceOption({ panelExpanded, title }) {
+
+
+function PreferenceOption({ panelExpanded, title, ariaControls, id, options, onChange, optionState, name }) {
     const [expanded, setExpanded] = useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -15,23 +17,32 @@ function PreferenceOption({ panelExpanded, title }) {
     };
 
     return (
-        <div>
-            <Accordion expanded={expanded === panelExpanded} onChange={handleChange(panelExpanded)}>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                >
+        <Accordion expanded={expanded === panelExpanded} onChange={handleChange(panelExpanded)}>
+            <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls={ariaControls}
+                id={id}
+            >
                 <Typography sx={{ width: '33%', flexShrink: 0 }}>
                     {title}
                 </Typography>
-                <Typography sx={{ color: 'text.secondary' }}>2 servings</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                <Typography>
-                    radio buttons will go here
-                </Typography>
-                </AccordionDetails>
-            </Accordion>
-        </div>
+                <Typography sx={{ color: 'text.secondary' }}>{optionState}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                {options.map((option) => {
+                    return (
+                        <RadioOption 
+                            key={option.id}
+                            id={option.id}
+                            name={name}
+                            title={option.title}
+                            onChange={onChange}
+                            optionState={optionState}
+                        />
+                    )
+                })}
+            </AccordionDetails>
+        </Accordion>
     )
 }
 

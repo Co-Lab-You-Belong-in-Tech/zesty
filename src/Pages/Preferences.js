@@ -10,22 +10,32 @@ import { maxTimeOptions } from "../utils/maxTimeOptions";
 import { allergyOptions } from "../utils/allergyOptions";
 import { dietOptions } from "../utils/dietOptions";
 
+import PreferenceOption from '../Components/PreferenceOption/PreferenceOption'
+
 const accordianObject = {
   panel1: {
     expanded: 'panel1',
     title: 'Serving Size',
+    ariaControls: 'panel1bh-content',
+    id: 'panel1bh-header'
   },
   panel2: {
     expanded: 'panel2',
     title: 'Total Time',
+    ariaControls: 'panel2bh-content',
+    id: 'panel2bh-header'
   },
   panel3: {
     expanded: 'panel3',
     title: 'Allergies',
+    ariaControls: 'panel3bh-content',
+    id: 'panel3bh-header'
   },
   panel4: {
     expanded: 'panel4',
     title: 'Special Diet',
+    ariaControls: 'panel4bh-content',
+    id: 'panel4bh-header'
   }
 }
 
@@ -38,11 +48,13 @@ function Preferences() {
 
   return (
     <div>
+      <PreferenceOption panelExpanded='panel1' title="Servings" />
+
       <Accordion expanded={expanded === accordianObject.panel1.expanded} onChange={handleChange('panel1')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
+          aria-controls={accordianObject.panel1.ariaControls}
+          id={accordianObject.panel1.id}
         >
           <Typography sx={{ width: '33%', flexShrink: 0 }}>
             {accordianObject.panel1.title}
@@ -58,8 +70,8 @@ function Preferences() {
       <Accordion expanded={expanded === accordianObject.panel2.expanded} onChange={handleChange('panel2')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
+          aria-controls={accordianObject.panel2.ariaControls}
+          id={accordianObject.panel1.id}
         >
           <Typography sx={{ width: '33%', flexShrink: 0 }}>
             {accordianObject.panel2.title}
@@ -77,8 +89,8 @@ function Preferences() {
       <Accordion expanded={expanded === accordianObject.panel3.expanded} onChange={handleChange('panel3')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
+          aria-controls={accordianObject.panel3.ariaControls}
+          id={accordianObject.panel1.id}
         >
           <Typography sx={{ width: '33%', flexShrink: 0 }}>
             {accordianObject.panel3.title}
@@ -96,8 +108,8 @@ function Preferences() {
       <Accordion expanded={expanded === accordianObject.panel4.expanded} onChange={handleChange('panel4')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel4bh-content"
-          id="panel4bh-header"
+          aria-controls={accordianObject.panel4.ariaControls}
+          id={accordianObject.panel1.id}
         >
           <Typography sx={{ width: '33%', flexShrink: 0 }}>
             {accordianObject.panel4.title}

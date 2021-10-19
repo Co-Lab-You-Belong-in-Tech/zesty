@@ -7,14 +7,26 @@ import { dietOptions } from "../utils/dietOptions";
 
 import PreferenceOption from '../Components/PreferenceOption/PreferenceOption'
 
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import CheckboxOption from '../Components/CheckboxOption/CheckboxOption'
+
 function Preferences() {
   const [diet, setDiet] = useState("")
   const [time, setTime] = useState("")
-  // time needs to be convertered to a number it's used in API
+  // time needs to be convertered to a number it's used in API -> const timeNum = Number(time)
   const [servings, setServings] = useState("")
   // servings needs to be converted to an array before using it to filter results
     // because we want to search servings between those two numbers
-
+  const [expanded, setExpanded] = useState(false);
+  const [allergies, setAllergies] = useState("")
+  const [checkedState, setCheckedState] = useState(
+    new Array(allergyOptions.length).fill(false)
+  );
+  
   const handleDiet = (e) => {
     setDiet(e.target.value)
   }
@@ -27,7 +39,25 @@ function Preferences() {
     setServings(e.target.value)
   }
 
-  // waiting to hear from Wendy if she wants only one panel open at a time
+  const handleAllergies = (position) => {
+    const updatedCheckedState = checkedState.map((item, index) => 
+      index === position ? !item : item
+    )
+    setCheckedState(updatedCheckedState)
+    const chosenAllergies = []
+    for(let i = 0; i < updatedCheckedState.length; i++) {
+      if(updatedCheckedState[i]) {
+        chosenAllergies.push(allergyOptions[i].id)
+      }
+    }
+    const allergyQuery = chosenAllergies.join()
+    setAllergies(allergyQuery) 
+  }
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
 
   // Inside the AccordianDetails I want to have inputs for wither checkboxes or radio buttons
   // can I get the info from those inputs into this component? And then into the SearchBar to update the search?
@@ -39,6 +69,7 @@ function Preferences() {
         title="Servings" 
         ariaControls='panel1bh-content' 
         id='panel1bh-header' 
+        type="radio"
         optionState={servings}
         options={servingRange}
         onChange={handleServings}
@@ -49,23 +80,54 @@ function Preferences() {
         title="Max Time Ready in Minutes" 
         ariaControls='panel2bh-content' 
         id='panel2bh-header'
+        type="radio"
         optionState={time}
         options={maxTimeOptions} 
         onChange={handleTime}
         name="time"
       />
+
+      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls='panel3bh-content'
+          id='panel3bh-header'
+        >
+          <Typography sx={{ width: '33%', flexShrink: 0 }}>
+            Allergies
+          </Typography>
+          <Typography sx={{ color: 'text.secondary' }}>{allergies}</Typography>
+        </AccordionSummary>
+          <AccordionDetails>
+            {allergyOptions.map((option, index) => {
+              return (
+                <CheckboxOption 
+                  key={option.id}
+                  id={option.id}
+                  title={option.title}
+                  onChange={() => handleAllergies(index)}
+                  checked={checkedState[index]}
+                /> 
+              )   
+            })}
+          </AccordionDetails>
+        </Accordion>
+
       {/* <PreferenceOption 
         panelExpanded='panel3' 
         title="Allergies" 
         ariaControls='panel3bh-content' 
         id='panel3bh-header'
         options={allergyOptions}
+        onChange={() => handleAllergies(index)}
+        checked={checkedState[index]}
       />  */}
       <PreferenceOption 
         panelExpanded='panel4' 
         title="Special Diet" 
         ariaControls='panel3bh-content' 
         id='panel4bh-header'
+        type="radio"
         optionState={diet}
         options={dietOptions}
         onChange={handleDiet}
@@ -76,3 +138,5 @@ function Preferences() {
 }
 
 export default Preferences;
+
+// options={allergyOptions}

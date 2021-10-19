@@ -7,9 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import RadioOption from '../RadioOption/RadioOption'
 
-
-
-function PreferenceOption({ panelExpanded, title, ariaControls, id, options, onChange, optionState, name }) {
+function PreferenceOption({ panelExpanded, title, ariaControls, id, type, options, onChange, optionState, name, checked }) {
     const [expanded, setExpanded] = useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -29,7 +27,7 @@ function PreferenceOption({ panelExpanded, title, ariaControls, id, options, onC
                 <Typography sx={{ color: 'text.secondary' }}>{optionState}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-                {options.map((option) => {
+                {options.map((option, index) => {
                     return (
                         <RadioOption 
                             key={option.id}
@@ -39,7 +37,7 @@ function PreferenceOption({ panelExpanded, title, ariaControls, id, options, onC
                             onChange={onChange}
                             optionState={optionState}
                         />
-                    )
+                    )   
                 })}
             </AccordionDetails>
         </Accordion>

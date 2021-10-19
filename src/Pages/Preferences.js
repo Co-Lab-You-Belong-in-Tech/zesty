@@ -7,46 +7,26 @@ import { dietOptions } from "../utils/dietOptions";
 
 import PreferenceOption from '../Components/PreferenceOption/PreferenceOption'
 
-// const accordianObject = {
-//   panel1: {
-//     expanded: 'panel1',
-//     title: 'Serving Size',
-//     ariaControls: 'panel1bh-content',
-//     id: 'panel1bh-header'
-//   },
-//   panel2: {
-//     expanded: 'panel2',
-//     title: 'Total Time',
-//     ariaControls: 'panel2bh-content',
-//     id: 'panel2bh-header'
-//   },
-//   panel3: {
-//     expanded: 'panel3',
-//     title: 'Allergies',
-//     ariaControls: 'panel3bh-content',
-//     id: 'panel3bh-header'
-//   },
-//   panel4: {
-//     expanded: 'panel4',
-//     title: 'Special Diet',
-//     ariaControls: 'panel4bh-content',
-//     id: 'panel4bh-header'
-//   }
-// }
-
 function Preferences() {
   const [diet, setDiet] = useState("")
+  const [time, setTime] = useState("")
+  // time needs to be convertered to a number it's used in API
+  const [servings, setServings] = useState("")
+  // servings needs to be converted to an array before using it to filter results
+    // because we want to search servings between those two numbers
 
   const handleDiet = (e) => {
     setDiet(e.target.value)
   }
 
-  console.log(diet)
-  // const [expanded, setExpanded] = React.useState(false);
+  const handleTime = (e) => {
+    setTime(e.target.value)
+  }
 
-  // const handleChange = (panel) => (event, isExpanded) => {
-  //   setExpanded(isExpanded ? panel : false);
-  // };
+  const handleServings = (e) => {
+    setServings(e.target.value)
+  }
+
   // waiting to hear from Wendy if she wants only one panel open at a time
 
   // Inside the AccordianDetails I want to have inputs for wither checkboxes or radio buttons
@@ -54,27 +34,33 @@ function Preferences() {
 
   return (
     <div>
-      {/* <PreferenceOption 
+      <PreferenceOption 
         panelExpanded='panel1' 
         title="Servings" 
         ariaControls='panel1bh-content' 
         id='panel1bh-header' 
+        optionState={servings}
         options={servingRange}
+        onChange={handleServings}
+        name="servings"
       />
       <PreferenceOption 
         panelExpanded='panel2' 
-        title="Max Time Ready" 
+        title="Max Time Ready in Minutes" 
         ariaControls='panel2bh-content' 
         id='panel2bh-header'
+        optionState={time}
         options={maxTimeOptions} 
-      /> */}
+        onChange={handleTime}
+        name="time"
+      />
       {/* <PreferenceOption 
         panelExpanded='panel3' 
         title="Allergies" 
         ariaControls='panel3bh-content' 
         id='panel3bh-header'
         options={allergyOptions}
-      /> */}
+      />  */}
       <PreferenceOption 
         panelExpanded='panel4' 
         title="Special Diet" 

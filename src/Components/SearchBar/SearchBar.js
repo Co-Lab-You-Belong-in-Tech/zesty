@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { SearchContext } from "../../Contexts/SearchContext";
 import RecipeList from "../RecipeList/RecipeList";
 import "./SearchBar.css";
 
@@ -6,7 +7,8 @@ const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`;
 
 export default function SearchBar() {
   const [recipes, setRecipes] = useState([]);
-  const [query, setQuery] = useState("");
+
+  const { query, setQuery } = useContext(SearchContext)
 
   useEffect(() => {
     getRecipes();

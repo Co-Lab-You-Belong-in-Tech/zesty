@@ -15,7 +15,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckboxOption from '../Components/CheckboxOption/CheckboxOption'
 
 function Preferences() {
-  const [servings, setServings] = useState("")
+  const [servings, setServings] = useState([])
   // servings needs to be converted to an array before using it to filter results
     // because we want to search servings between those two numbers
   const [time, setTime] = useState("")

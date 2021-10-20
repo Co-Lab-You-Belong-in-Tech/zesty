@@ -15,28 +15,24 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckboxOption from '../Components/CheckboxOption/CheckboxOption'
 
 function Preferences() {
-  const [diet, setDiet] = useState("")
-  const [time, setTime] = useState("")
-  // time needs to be convertered to a number it's used in API -> const timeNum = Number(time)
   const [servings, setServings] = useState("")
   // servings needs to be converted to an array before using it to filter results
     // because we want to search servings between those two numbers
+  const [time, setTime] = useState("")
+  // time needs to be convertered to a number it's used in API -> const timeNum = Number(time)
   const [expanded, setExpanded] = useState(false);
   const [allergies, setAllergies] = useState("")
   const [checkedState, setCheckedState] = useState(
     new Array(allergyOptions.length).fill(false)
   );
-  
-  const handleDiet = (e) => {
-    setDiet(e.target.value)
+  const [diet, setDiet] = useState("")
+
+  const handleServings = (e) => {
+    setServings(e.target.value)
   }
 
   const handleTime = (e) => {
     setTime(e.target.value)
-  }
-
-  const handleServings = (e) => {
-    setServings(e.target.value)
   }
 
   const handleAllergies = (position) => {
@@ -58,11 +54,19 @@ function Preferences() {
     setExpanded(isExpanded ? panel : false);
   };
 
+  const handleDiet = (e) => {
+    setDiet(e.target.value)
+  }
+
 
   // Inside the AccordianDetails I want to have inputs for wither checkboxes or radio buttons
   // can I get the info from those inputs into this component? And then into the SearchBar to update the search?
 
   return (
+
+    // to do:
+      // add in save button that brings user back to Home page
+    
     <div>
       <PreferenceOption 
         panelExpanded='panel1' 
@@ -113,15 +117,6 @@ function Preferences() {
           </AccordionDetails>
         </Accordion>
 
-      {/* <PreferenceOption 
-        panelExpanded='panel3' 
-        title="Allergies" 
-        ariaControls='panel3bh-content' 
-        id='panel3bh-header'
-        options={allergyOptions}
-        onChange={() => handleAllergies(index)}
-        checked={checkedState[index]}
-      />  */}
       <PreferenceOption 
         panelExpanded='panel4' 
         title="Special Diet" 
@@ -138,5 +133,3 @@ function Preferences() {
 }
 
 export default Preferences;
-
-// options={allergyOptions}

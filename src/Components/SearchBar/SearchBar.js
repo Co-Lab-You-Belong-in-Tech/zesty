@@ -43,7 +43,7 @@ export default function SearchBar() {
 
   const getRecipes = () => {
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=10&addRecipeInformation=true&ignorePantry=false&query=${query}&instructionsRequired=true&fillIngredients=true&intolerances=${allergies}&diet=${diet}&maxReadyTime=${time}`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=20&addRecipeInformation=true&ignorePantry=false&query=${query}&instructionsRequired=true&fillIngredients=true&intolerances=${allergies}&diet=${diet}&maxReadyTime=${time}`
     )
       .then((response) => response.json())
       .then((data) => {

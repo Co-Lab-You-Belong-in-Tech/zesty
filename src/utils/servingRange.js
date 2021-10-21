@@ -1,6 +1,6 @@
 export const servingRange = [
-    { id: '2-4', title: '2-4 servings', servings: [2,4] },
-    { id: '6-8', title: '6-8 servings', servings: [6,8] },
-    { id: '10-12', title: '10-12 servings', servings: [10,12] },
-    { id: '20-24', title: '20-24 servings', servings: [20,24] }
+    { id: 'any', title: 'Any number of servings' },
+    { id: '2-4', title: '2-4 servings' },
+    { id: '4-6', title: '4-6 servings' },
+    { id: '6 or more', title: '6 or more servings' }
 ]

@@ -10,7 +10,23 @@ export default function SearchBar() {
 
   const { query, setQuery, time, allergies, diet, servings } = useContext(SearchContext)
 
-  console.log(servings)
+  const filterRecipes = () => {
+    const filteredRecipes = recipes.filter((recipe) => {
+      if(servings === '6 or more') {
+        return (recipe.servings >= 6)
+      }
+      if(servings === '4-6') {
+        return (recipe.servings <= 6 && recipe.servings >= 4)
+      }
+      if(servings === '2-4') {
+        return (recipe.servings <= 4 && recipe.servings >= 2)
+      }
+      else return recipes
+    })
+    return filteredRecipes
+  }
+
+  const showRecipes = filterRecipes()
 
   useEffect(() => {
     getRecipes();
@@ -53,7 +69,7 @@ export default function SearchBar() {
           </button>
         </form>
       </section>
-      <RecipeList recipeData={recipes} />
+      <RecipeList recipeData={showRecipes} />
     </>
   );
 }

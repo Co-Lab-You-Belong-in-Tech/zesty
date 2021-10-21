@@ -8,7 +8,9 @@ const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`;
 export default function SearchBar() {
   const [recipes, setRecipes] = useState([]);
 
-  const { query, setQuery } = useContext(SearchContext)
+  const { query, setQuery, time, allergies, diet, servings } = useContext(SearchContext)
+
+  console.log(servings)
 
   useEffect(() => {
     getRecipes();
@@ -25,7 +27,7 @@ export default function SearchBar() {
 
   const getRecipes = () => {
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=10&addRecipeInformation=true&ignorePantry=false&query=${query}&instructionsRequired=true&fillIngredients=true&`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=10&addRecipeInformation=true&ignorePantry=false&query=${query}&instructionsRequired=true&fillIngredients=true&intolerances=${allergies}&diet=${diet}&maxReadyTime=${time}`
     )
       .then((response) => response.json())
       .then((data) => {

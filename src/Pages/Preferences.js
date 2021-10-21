@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { SearchContext } from '../Contexts/SearchContext'
 
 import { servingRange } from "../utils/servingRange";
 import { maxTimeOptions } from "../utils/maxTimeOptions";
@@ -12,20 +13,20 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 import CheckboxOption from '../Components/CheckboxOption/CheckboxOption'
 
 function Preferences() {
-  const [servings, setServings] = useState([])
-  // servings needs to be converted to an array before using it to filter results
-    // because we want to search servings between those two numbers
-  const [time, setTime] = useState("")
-  // time needs to be convertered to a number it's used in API -> const timeNum = Number(time)
+  const { 
+    servings, setServings, 
+    time, setTime, allergies, 
+    setAllergies, 
+    diet, setDiet } = useContext(SearchContext)
+
   const [expanded, setExpanded] = useState(false);
-  const [allergies, setAllergies] = useState("")
   const [checkedState, setCheckedState] = useState(
     new Array(allergyOptions.length).fill(false)
   );
-  const [diet, setDiet] = useState("")
 
   const handleServings = (e) => {
     setServings(e.target.value)
@@ -67,7 +68,7 @@ function Preferences() {
     // to do:
       // add in save button that brings user back to Home page
     
-    <div>
+    <div className="preferences">
       <PreferenceOption 
         panelExpanded='panel1' 
         title="Servings" 

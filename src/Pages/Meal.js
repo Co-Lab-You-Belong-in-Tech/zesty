@@ -17,11 +17,11 @@ function Meal() {
   let { id } = useParams();
 
   const addToFavorite = (meal) => {
-    favorites.push(meal);
-    console.log(favorites);
+    //loop through favorites array and if it doesn't equal id then push
 
-    // if (!mealList.includes(id)) setMealList(mealList.id);
-    // console.log(mealList);
+    favorites.push(meal);
+
+    console.log(favorites);
   };
 
   useEffect(() => {

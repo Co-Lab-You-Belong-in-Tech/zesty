@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 import Home from "./Pages/Home";
@@ -8,7 +8,6 @@ import Preferences from "./Pages/Preferences";
 import Meal from "./Pages/Meal";
 import "./App.css";
 import { FavoriteContext } from "./Contexts/FavoriteContext";
-// import { FavoriteContext } from "./Contexts/FavoriteContext";
 
 function App() {
   let favorites = [];
@@ -20,7 +19,11 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <FavoriteContext.Provider value={{ favorites }}>
-            <Route path="/meal-list" component={MealList} />
+            <Route
+              path="/meal-list"
+              component={MealList}
+              favorites={favorites}
+            />
             <Route path="/shopping-list" component={ShoppingList} />
             <Route path="/preferences" component={Preferences} />
             <Route path="/meal/:id" component={Meal} />

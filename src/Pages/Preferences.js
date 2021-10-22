@@ -65,7 +65,7 @@ function Preferences() {
         marginBottom: 5,
         padding: 5,
         backgroundColor: '#F3F3F3',
-        borderRadius: 10,
+        borderRadius: 5,
         textAlign: 'center'
     }
   }));
@@ -75,7 +75,9 @@ function Preferences() {
 
   return (    
     <>
-      <Link to="/">Save</Link>
+      <Link to="/">
+        <button>Save</button>
+      </Link>
       <div className={classes.root}>
         <PreferenceOption 
           panelExpanded='panel1' 

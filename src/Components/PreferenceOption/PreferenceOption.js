@@ -25,10 +25,10 @@ function PreferenceOption({ panelExpanded, title, ariaControls, id, options, onC
                 aria-controls={ariaControls}
                 id={id}
             >
-                <Typography sx={{ width: '40%', flexShrink: 0, fontFamily: 'Montserrat', fontWeight: 500, textAlign: 'left' }}>
+                <Typography sx={{ width: '40%', flexShrink: 0, fontFamily: 'Montserrat', fontWeight: 500, textAlign: 'left', fontSize: '1.125rem' }}>
                     {title}
                 </Typography>
-                <Typography sx={{ color: 'text.secondary', fontFamily: 'Montserrat'}}>
+                <Typography sx={{ color: 'text.secondary', fontFamily: 'Montserrat', fontSize: '1rem' }}>
                     {optionState}
                 </Typography>
             </AccordionSummary>

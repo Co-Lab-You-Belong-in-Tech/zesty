@@ -45,10 +45,10 @@ function AllergiesOption({ allergyOptions, setAllergies, accordionClass, allergy
         aria-controls='panel3bh-content'
         id='panel3bh-header'
       >
-        <Typography sx={{ width: '35%', flexShrink: 0, fontFamily: 'Montserrat', fontWeight: 500, textAlign: 'left' }}>
+        <Typography sx={{ width: '35%', flexShrink: 0, fontFamily: 'Montserrat', fontWeight: 500, textAlign: 'left', fontSize: '1.125rem' }}>
           Allergies
         </Typography>
-        <Typography sx={{ color: 'text.secondary', fontFamily: 'Montserrat', textAlign: 'left' }}>
+        <Typography sx={{ color: 'text.secondary', fontFamily: 'Montserrat', textAlign: 'left', fontSize: '1rem' }}>
           <div className={allergyListClass}>
             {allergyArray.map((allergy) => {
               return (

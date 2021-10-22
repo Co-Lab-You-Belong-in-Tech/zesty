@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { SearchContext } from '../Contexts/SearchContext';
-import { Link } from "react-router-dom";
 
 import { makeStyles } from '@mui/styles';
 import { createTheme } from '@mui/material';
@@ -10,7 +9,7 @@ import { maxTimeOptions } from "../utils/maxTimeOptions";
 import { allergyOptions } from "../utils/allergyOptions";
 import { dietOptions } from "../utils/dietOptions";
 
-import PageLinkButton from '../Components/PageLinkButton/PageLinkButton';
+import SaveButton from '../Components/SaveButton/SaveButton';
 import PreferenceOption from '../Components/PreferenceOption/PreferenceOption';
 import AllergiesOption from '../Components/AllergiesOption/AllergiesOption';
 
@@ -76,7 +75,7 @@ function Preferences() {
 
   return (    
     <div className={classes.root}>
-      <PageLinkButton text="Save" />
+      <SaveButton text="Save" />
       <PreferenceOption 
         panelExpanded='panel1' 
         title="Servings" 

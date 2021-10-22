@@ -40,15 +40,14 @@ function MealTabs({ summary, ingredients, directions }) {
 
     const getIngredients = ingredients.map((ingredient, index) => {
         return (
-            <li key={index}>{ingredient.original}</li>
+            <li className="ingredient" key={index}>{ingredient.original}</li>
         );
     });
 
-      const getSteps = directions.map((step) => {
+    const getSteps = directions.map((step) => {
         return (
-             <li key={step.step}>{step.step}</li>
+             <li className="step" key={step.step}>{step.step}</li>
         );
-        
     });
 
     return (

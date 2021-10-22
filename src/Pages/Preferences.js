@@ -10,6 +10,7 @@ import { maxTimeOptions } from "../utils/maxTimeOptions";
 import { allergyOptions } from "../utils/allergyOptions";
 import { dietOptions } from "../utils/dietOptions";
 
+import PageLinkButton from '../Components/PageLinkButton/PageLinkButton';
 import PreferenceOption from '../Components/PreferenceOption/PreferenceOption';
 import AllergiesOption from '../Components/AllergiesOption/AllergiesOption';
 
@@ -74,53 +75,49 @@ function Preferences() {
   const classes = useStyles();
 
   return (    
-    <>
-      <Link to="/">
-        <button>Save</button>
-      </Link>
-      <div className={classes.root}>
-        <PreferenceOption 
-          panelExpanded='panel1' 
-          title="Servings" 
-          ariaControls='panel1bh-content' 
-          id='panel1bh-header' 
-          optionState={servings}
-          options={servingRange}
-          onChange={handleServings}
-          name="servings"
-          accordionClass={classes.accordion}
-        />
-        <PreferenceOption 
-          panelExpanded='panel2' 
-          title="Ready in Minutes" 
-          ariaControls='panel2bh-content' 
-          id='panel2bh-header'
-          optionState={time}
-          options={maxTimeOptions} 
-          onChange={handleTime}
-          name="time"
-          accordionClass={classes.accordion}
-        />
-        <AllergiesOption 
-          allergyOptions={allergyOptions}
-          setAllergies={setAllergies}
-          accordionClass={classes.accordion}
-          allergyListClass={classes.allergyList}
-          allergyClass={classes.allergy}
-        />
-        <PreferenceOption 
-          panelExpanded='panel4' 
-          title="Special Diet" 
-          ariaControls='panel3bh-content' 
-          id='panel4bh-header'
-          optionState={diet}
-          options={dietOptions}
-          onChange={handleDiet}
-          name="diet"
-          accordionClass={classes.accordion}
-        />
-      </div>
-    </>
+    <div className={classes.root}>
+      <PageLinkButton text="Save" />
+      <PreferenceOption 
+        panelExpanded='panel1' 
+        title="Servings" 
+        ariaControls='panel1bh-content' 
+        id='panel1bh-header' 
+        optionState={servings}
+        options={servingRange}
+        onChange={handleServings}
+        name="servings"
+        accordionClass={classes.accordion}
+      />
+      <PreferenceOption 
+        panelExpanded='panel2' 
+        title="Ready in Minutes" 
+        ariaControls='panel2bh-content' 
+        id='panel2bh-header'
+        optionState={time}
+        options={maxTimeOptions} 
+        onChange={handleTime}
+        name="time"
+        accordionClass={classes.accordion}
+      />
+      <AllergiesOption 
+        allergyOptions={allergyOptions}
+        setAllergies={setAllergies}
+        accordionClass={classes.accordion}
+        allergyListClass={classes.allergyList}
+        allergyClass={classes.allergy}
+      />
+      <PreferenceOption 
+        panelExpanded='panel4' 
+        title="Special Diet" 
+        ariaControls='panel3bh-content' 
+        id='panel4bh-header'
+        optionState={diet}
+        options={dietOptions}
+        onChange={handleDiet}
+        name="diet"
+        accordionClass={classes.accordion}
+      />
+    </div>
   );
 }
 

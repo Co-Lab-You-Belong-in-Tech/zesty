@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import RadioOption from '../RadioOption/RadioOption'
 
-function PreferenceOption({ panelExpanded, title, ariaControls, id, type, options, onChange, optionState, name, checked }) {
+function PreferenceOption({ panelExpanded, title, ariaControls, id, options, onChange, optionState, name, accordionClass, accordionDetailsClass }) {
     const [expanded, setExpanded] = useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -15,32 +15,40 @@ function PreferenceOption({ panelExpanded, title, ariaControls, id, type, option
     };
 
     return (
-        <Accordion expanded={expanded === panelExpanded} onChange={handleChange(panelExpanded)}>
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls={ariaControls}
-                id={id}
+            <Accordion
+                TransitionProps={{ unmountOnExit: true }}
+                expanded={expanded === panelExpanded} 
+                onChange={handleChange(panelExpanded)}
+                className={accordionClass}
             >
-                <Typography sx={{ width: '33%', flexShrink: 0 }}>
-                    {title}
-                </Typography>
-                <Typography sx={{ color: 'text.secondary' }}>{optionState}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                {options.map((option, index) => {
-                    return (
-                        <RadioOption 
-                            key={option.id}
-                            id={option.id}
-                            name={name}
-                            title={option.title}
-                            onChange={onChange}
-                            optionState={optionState}
-                        />
-                    )   
-                })}
-            </AccordionDetails>
-        </Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls={ariaControls}
+                    id={id}
+                >
+                    <Typography sx={{ width: '40%', flexShrink: 0, fontFamily: 'Montserrat', fontWeight: 500, textAlign: 'left' }}>
+                        {title}
+                    </Typography>
+                    <Typography sx={{ color: 'text.secondary', fontFamily: 'Montserrat'}}>
+                        {optionState}
+                    </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    {options.map((option) => {
+                        return (
+                            <RadioOption 
+                                key={option.id}
+                                id={option.id}
+                                name={name}
+                                title={option.title}
+                                onChange={onChange}
+                                optionState={optionState}
+                            />
+                        )   
+                    })}
+                </AccordionDetails>
+            </Accordion>
+
     )
 }
 

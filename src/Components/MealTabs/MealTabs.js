@@ -12,18 +12,14 @@ function MealTabs({ summary, ingredients, directions }) {
     const tabTheme = createTheme({
         breakpoints: {
             values: {
-                xs: 0,
-                sm: 600,
-                md: 900,
-                lg: 1200,
-                xl: 1536,
+                desktop: 600,
             }
         }
     });
     
     const useStyles = makeStyles(() => ({
         tabs: {
-            [tabTheme.breakpoints.up("sm")]: {
+            [tabTheme.breakpoints.up("desktop")]: {
                 width: 600,
                 margin: 'auto'
             }

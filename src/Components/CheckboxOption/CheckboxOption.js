@@ -1,9 +1,11 @@
 import React from 'react'
 import Checkbox from '@mui/material/Checkbox';
 
+import '../RadioOption/Option.css'
+
 function CheckboxOption({ id, title, onChange, checked }) {
     return (
-        <div>
+        <div className="accordion-details">
            <Checkbox 
                 checked={checked}
                 onChange={onChange}

@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
-
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
 import CheckboxOption from '../CheckboxOption/CheckboxOption'
 
-function AllergiesOption({ allergyOptions, allergies, setAllergies }) {
+function AllergiesOption({ allergyOptions, setAllergies, accordionClass, allergyListClass, allergyClass }) {
     const [expanded, setExpanded] = useState(false);
     const [checkedState, setCheckedState] = useState(
       new Array(allergyOptions.length).fill(false)
     );
+    const [ allergyArray, setAllergyArray ] = useState([])
 
     const handleAllergies = (position) => {
         const updatedCheckedState = checkedState.map((item, index) => 
@@ -26,7 +25,8 @@ function AllergiesOption({ allergyOptions, allergies, setAllergies }) {
           }
         }
         const allergyQuery = chosenAllergies.join()
-        setAllergies(allergyQuery) 
+        setAllergies(allergyQuery)
+        setAllergyArray(chosenAllergies)
       }
     
       const handleChange = (panel) => (event, isExpanded) => {
@@ -34,30 +34,42 @@ function AllergiesOption({ allergyOptions, allergies, setAllergies }) {
       };
 
     return (
-        <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+        <Accordion 
+            expanded={expanded === 'panel3'} 
+            onChange={handleChange('panel3')}
+            className={accordionClass}
+            >
             <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls='panel3bh-content'
             id='panel3bh-header'
             >
-            <Typography sx={{ width: '33%', flexShrink: 0 }}>
+            <Typography sx={{ width: '35%', flexShrink: 0, fontFamily: 'Montserrat', fontWeight: 500, textAlign: 'left' }}>
                 Allergies
             </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>{allergies}</Typography>
+            <Typography sx={{ color: 'text.secondary', fontFamily: 'Montserrat', textAlign: 'left' }}>
+                <div className={allergyListClass}>
+                    {allergyArray.map((allergy) => {
+                        return (
+                            <p className={allergyClass} key={allergy}>{allergy}</p>
+                        )
+                    })}
+                </div>
+            </Typography>
             </AccordionSummary>
-          <AccordionDetails>
-            {allergyOptions.map((option, index) => {
-              return (
-                <CheckboxOption 
-                  key={option.id}
-                  id={option.id}
-                  title={option.title}
-                  onChange={() => handleAllergies(index)}
-                  checked={checkedState[index]}
-                /> 
-              )   
-            })}
-          </AccordionDetails>
+            <AccordionDetails>
+                {allergyOptions.map((option, index) => {
+                return (
+                    <CheckboxOption 
+                        key={option.id}
+                        id={option.id}
+                        title={option.title}
+                        onChange={() => handleAllergies(index)}
+                        checked={checkedState[index]}
+                    /> 
+                )   
+                })}
+            </AccordionDetails>
         </Accordion>
     )
 }

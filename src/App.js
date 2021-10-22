@@ -12,7 +12,7 @@ import { SearchContext } from './Contexts/SearchContext'
 
 function App() {
   const [query, setQuery] = useState("");
-  const [servings, setServings] = useState('')
+  const [servings, setServings] = useState("any")
   const [time, setTime] = useState(30)
   const [allergies, setAllergies] = useState("")
   const [diet, setDiet] = useState("")

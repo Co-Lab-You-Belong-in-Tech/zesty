@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SearchContext } from '../Contexts/SearchContext'
+import { SearchContext } from '../Contexts/SearchContext';
 import { Link } from "react-router-dom";
 
 import { makeStyles } from '@mui/styles';
@@ -10,27 +10,27 @@ import { maxTimeOptions } from "../utils/maxTimeOptions";
 import { allergyOptions } from "../utils/allergyOptions";
 import { dietOptions } from "../utils/dietOptions";
 
-import PreferenceOption from '../Components/PreferenceOption/PreferenceOption'
-import AllergiesOption from '../Components/AllergiesOption/AllergiesOption'
+import PreferenceOption from '../Components/PreferenceOption/PreferenceOption';
+import AllergiesOption from '../Components/AllergiesOption/AllergiesOption';
 
 function Preferences() {
   const { 
     servings, setServings, 
     time, setTime, 
     setAllergies, 
-    diet, setDiet } = useContext(SearchContext)
+    diet, setDiet } = useContext(SearchContext);
 
   const handleServings = (e) => {
-    setServings(e.target.value)
-  }
+    setServings(e.target.value);
+  };
 
   const handleTime = (e) => {
-    setTime(e.target.value)
-  }
+    setTime(e.target.value);
+  };
 
   const handleDiet = (e) => {
-    setDiet(e.target.value)
-  }
+    setDiet(e.target.value);
+  };
 
   const accordionTheme = createTheme({
     breakpoints: {
@@ -71,7 +71,7 @@ function Preferences() {
   }));
 
 
-const classes = useStyles();
+  const classes = useStyles();
 
   return (    
     <>
@@ -99,7 +99,6 @@ const classes = useStyles();
           name="time"
           accordionClass={classes.accordion}
         />
-
         <AllergiesOption 
           allergyOptions={allergyOptions}
           setAllergies={setAllergies}
@@ -107,7 +106,6 @@ const classes = useStyles();
           allergyListClass={classes.allergyList}
           allergyClass={classes.allergy}
         />
-
         <PreferenceOption 
           panelExpanded='panel4' 
           title="Special Diet" 

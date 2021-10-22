@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import Checkbox from '@mui/material/Checkbox';
 
-import '../RadioOption/Option.css'
+import '../RadioOption/Option.css';
 
 function CheckboxOption({ id, title, onChange, checked }) {
     return (
@@ -15,7 +15,7 @@ function CheckboxOption({ id, title, onChange, checked }) {
            />
            <label>{title}</label> 
         </div>
-    )
-}
+    );
+};
 
 export default CheckboxOption

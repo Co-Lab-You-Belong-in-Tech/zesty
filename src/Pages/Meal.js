@@ -18,9 +18,7 @@ function Meal() {
 
   const addToFavorite = (meal) => {
     //loop through favorites array and if it doesn't equal id then push
-
     favorites.push(meal);
-
     console.log(favorites);
   };
 

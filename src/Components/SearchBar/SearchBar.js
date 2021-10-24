@@ -11,7 +11,7 @@ export default function SearchBar() {
   useEffect(() => {
     getRecipes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); 
+  }, []);
 
   function search(event) {
     event.preventDefault();
@@ -44,6 +44,7 @@ export default function SearchBar() {
             onChange={handleQueryChange}
             autoFocus={true}
           />
+
           <button variant="contained" onClick={getRecipes}>
             Get Recipes
           </button>

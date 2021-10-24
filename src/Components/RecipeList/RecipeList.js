@@ -8,11 +8,7 @@ function RecipeList({ recipeData }) {
       {recipeData.map((recipe) => {
         return (
           <Link key={recipe.id} to={`/meal/${recipe.id}`}>
-            <Recipe
-              key={recipe.id}
-              title={recipe.title}
-              image={recipe.image}
-            />
+            <Recipe key={recipe.id} title={recipe.title} image={recipe.image} />
           </Link>
         );
       })}

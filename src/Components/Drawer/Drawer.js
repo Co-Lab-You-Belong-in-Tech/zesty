@@ -14,6 +14,7 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ListAltOutlined from "@mui/icons-material/ListAltOutlined";
 import FilterListOutlined from "@mui/icons-material/FilterListOutlined";
 import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
+import Info from "@mui/icons-material/Info";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
@@ -68,6 +69,15 @@ function DrawerComponent() {
                 <Box display="flex" alignItems="center">
                   <ShoppingCartOutlined />{" "}
                   <Typography>Shopping List</Typography>
+                </Box>
+              </Link>
+            </ListItemText>
+          </ListItem>
+          <ListItem onClick={() => setOpenDrawer(false)}>
+            <ListItemText>
+              <Link to="/help">
+                <Box display="flex" alignItems="center">
+                  <Info /> <Typography>Help</Typography>
                 </Box>
               </Link>
             </ListItemText>

@@ -6,6 +6,7 @@ import MealList from "./Pages/MealList";
 import ShoppingList from "./Pages/ShoppingList";
 import Preferences from "./Pages/Preferences";
 import Meal from "./Pages/Meal";
+import Help from "./Pages/Help";
 import "./App.css";
 import { FavoriteContext } from "./Contexts/FavoriteContext";
 
@@ -27,6 +28,7 @@ function App() {
             />
             <Route path="/shopping-list" component={ShoppingList} />
             <Route path="/meal/:id" component={Meal} />
+            <Route path="/help" component={Help} />
           </FavoriteContext.Provider>
         </Switch>
       </Router>

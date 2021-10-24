@@ -57,8 +57,11 @@ function NavBar() {
               <Link to="/my-meal-list" className={classes.link}>
                 My Meal List
               </Link>
-              <Link to="/grocery-list" className={classes.link}>
+              <Link to="/shopping-list" className={classes.link}>
                 Shopping List
+              </Link>
+              <Link to="/help" className={classes.link}>
+                Help
               </Link>
             </div>
           )}

@@ -36,17 +36,17 @@ function DrawerComponent() {
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/meal-list">Meal List</Link>
+              <Link to="/preferences">Preferences</Link>
+            </ListItemText>
+          </ListItem>
+          <ListItem onClick={() => setOpenDrawer(false)}>
+            <ListItemText>
+              <Link to="/my-meal-list">My Meal List</Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
               <Link to="/shopping-list">Shopping List</Link>
-            </ListItemText>
-          </ListItem>
-          <ListItem onClick={() => setOpenDrawer(false)}>
-            <ListItemText>
-              <Link to="/preferences">Preferences</Link>
             </ListItemText>
           </ListItem>
         </List>

@@ -18,14 +18,14 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/preferences" component={Preferences} />
           <FavoriteContext.Provider value={{ favorites }}>
             <Route
-              path="/meal-list"
+              path="/my-meal-list"
               component={MealList}
               favorites={favorites}
             />
             <Route path="/shopping-list" component={ShoppingList} />
-            <Route path="/preferences" component={Preferences} />
             <Route path="/meal/:id" component={Meal} />
           </FavoriteContext.Provider>
         </Switch>

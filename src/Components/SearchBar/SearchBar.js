@@ -40,7 +40,7 @@ export default function SearchBar() {
         <form onSubmit={search}>
           <input
             type="text"
-            placeholder="Search recipes..."
+            placeholder="Search recipes and ingredients..."
             onChange={handleQueryChange}
             autoFocus={true}
           />

@@ -1,11 +1,12 @@
 import React from "react";
 import "../App.css";
+import ZestyLogo from '../logo.png';
 
 function Help() {
   return (
     <div className="home">
       <div className="container">
-        <img src="logo.png" alt="logo" className="logo" />
+        <img src={ZestyLogo} alt="logo" className="logo" />
         <h1 className="help-title">Your Meal Planning Assistant Made EASY!</h1>
         <ul className="helpful-tips">
           <li className="helpful-tip-item">

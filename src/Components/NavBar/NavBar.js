@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import DrawerComponent from "../Drawer/Drawer";
-// import ZestyLogo from '../../logo.png'
+import ZestyLogo from '../../logo.png'
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {
@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     flexGrow: "1",
     cursor: "pointer",
+  },
+  logoImage: {
+    width: "100px",
+    marginTop: "10px"
   },
   link: {
     textDecoration: "none",
@@ -66,8 +70,7 @@ function NavBar() {
             </div>
           )}
           <Typography variant="h4" className={classes.logo}>
-            {/* <img className="logo" src={ZestyLogo} alt="" /> */}
-            Zesty
+            <img className={classes.logoImage} src={ZestyLogo} alt="" />
           </Typography>
         </Toolbar>
       </AppBar>

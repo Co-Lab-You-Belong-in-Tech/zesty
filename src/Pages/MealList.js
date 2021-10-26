@@ -6,6 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import { Link } from "react-router-dom";
 
 //create function to remove favorite based off of id
 
@@ -19,7 +20,7 @@ function MealList(meal) {
     //   console.log(favorites);
     // };
     return (
-      <Box sx={{ flexGrow: 1 }}>
+      <Box key={favorite.key} sx={{ flexGrow: 1 }}>
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
@@ -27,22 +28,24 @@ function MealList(meal) {
         >
           <Grid item xs={6} md={8}>
             {/* <Item> */}
-            <Card sx={{ maxWidth: 600 }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image={favorite.image}
-                alt={favorite.title}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h6" component="div">
-                  {favorite.title}
-                </Typography>
-              </CardContent>
-              {/* <button onClick={() => removeFromFavorite(meal)}>
-          Remove from meal list
-        </button> */}
-            </Card>
+            <Link key={favorite.id} to={`/meal/${favorite.id}`}>
+              <Card sx={{ maxWidth: 600 }}>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={favorite.image}
+                  alt={favorite.title}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h6" component="div">
+                    {favorite.title}
+                  </Typography>
+                </CardContent>
+                {/* <button onClick={() => removeFromFavorite(meal)}>
+            Remove from meal list
+          </button> */}
+              </Card>
+              </Link>
             {/* </Item> */}
           </Grid>
         </Grid>

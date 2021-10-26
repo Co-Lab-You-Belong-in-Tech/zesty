@@ -26,24 +26,19 @@ function MealList(meal) {
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
           <Grid item xs={6} md={8}>
-            {/* <Item> */}
             <Card sx={{ maxWidth: 600 }}>
               <CardMedia
                 component="img"
                 height="140"
                 image={favorite.image}
-                alt={favorite.title}
+                title={favorite.title}
               />
               <CardContent>
                 <Typography gutterBottom variant="h6" component="div">
                   {favorite.title}
                 </Typography>
               </CardContent>
-              {/* <button onClick={() => removeFromFavorite(meal)}>
-          Remove from meal list
-        </button> */}
             </Card>
-            {/* </Item> */}
           </Grid>
         </Grid>
       </Box>

@@ -9,10 +9,15 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import DrawerComponent from "../Drawer/Drawer";
-// import ZestyLogo from '../../logo.png'
+import Drawer from "../Drawer/Drawer";
+import ZestyLogo from '../../logo.png'
+
+import './NavBar.css'
 
 const useStyles = makeStyles((theme) => ({
+  navBar: {
+    background: "linear-gradient(180deg, #983019 3.69%, #FFCE6D 135.4%)"
+  },
   navlinks: {
     marginLeft: theme.spacing(10),
     display: "flex",
@@ -21,16 +26,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: "1",
     cursor: "pointer",
   },
-  link: {
-    textDecoration: "none",
-    color: "white",
-    fontSize: "20px",
-    marginLeft: theme.spacing(20),
-    "&:hover": {
-      color: "yellow",
-      borderBottom: "1px solid white",
-    },
-  },
+  logoImage: {
+    width: "100px",
+    marginTop: "10px"
+  }
 }));
 
 function NavBar() {
@@ -41,11 +40,11 @@ function NavBar() {
   return (
     // I think we can delete the nav here - check with Blake
     <nav className="nav-bar">
-      <AppBar position="static">
+      <AppBar position="static" className={classes.navBar}>
         <CssBaseline />
         <Toolbar>
           {isMobile ? (
-            <DrawerComponent />
+            <Drawer/>
           ) : (
             <div className={classes.navlinks}>
               <Link to="/" className={classes.link}>
@@ -66,8 +65,7 @@ function NavBar() {
             </div>
           )}
           <Typography variant="h4" className={classes.logo}>
-            {/* <img className="logo" src={ZestyLogo} alt="" /> */}
-            Zesty
+            <img className={classes.logoImage} src={ZestyLogo} alt="" />
           </Typography>
         </Toolbar>
       </AppBar>

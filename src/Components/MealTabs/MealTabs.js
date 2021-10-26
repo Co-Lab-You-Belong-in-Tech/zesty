@@ -12,18 +12,14 @@ function MealTabs({ summary, ingredients, directions }) {
     const tabTheme = createTheme({
         breakpoints: {
             values: {
-                xs: 0,
-                sm: 600,
-                md: 900,
-                lg: 1200,
-                xl: 1536,
+                desktop: 600,
             }
         }
     });
     
     const useStyles = makeStyles(() => ({
         tabs: {
-            [tabTheme.breakpoints.up("sm")]: {
+            [tabTheme.breakpoints.up("desktop")]: {
                 width: 600,
                 margin: 'auto'
             }
@@ -44,15 +40,14 @@ function MealTabs({ summary, ingredients, directions }) {
 
     const getIngredients = ingredients.map((ingredient, index) => {
         return (
-            <li key={index}>{ingredient.original}</li>
+            <li className="ingredient" key={index}>{ingredient.original}</li>
         );
     });
 
-      const getSteps = directions.map((step) => {
+    const getSteps = directions.map((step) => {
         return (
-             <li key={step.step}>{step.step}</li>
+             <li className="step" key={step.step}>{step.step}</li>
         );
-        
     });
 
     return (

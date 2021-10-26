@@ -6,7 +6,7 @@ import './MealHeader.css';
 function MealHeader({ title, time, servings, diets }) {
     const displayDiets = diets.map((diet) => {
         return (
-            <p className="diet">{diet}</p>
+            <p key={diet} className="diet">{diet}</p>
         );
     });
 

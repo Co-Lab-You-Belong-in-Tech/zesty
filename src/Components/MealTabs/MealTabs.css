@@ -13,3 +13,8 @@
   margin: 0;
   padding: 0 0 0 14px;
 }
+
+.ingredient,
+.step {
+  margin-bottom: 8px;
+}

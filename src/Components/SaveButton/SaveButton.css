@@ -1,0 +1,20 @@
+.button-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.link-button {
+  background-color: none;
+  font-size: 1.125rem;
+  font-family: "Montserrat", sans-serif;
+  margin-right: 0;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.link-button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

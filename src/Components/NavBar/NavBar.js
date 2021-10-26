@@ -10,13 +10,13 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Drawer from "../Drawer/Drawer";
-import ZestyLogo from '../../logo.png'
+import ZestyLogo from "../../logo.png";
 
-import './NavBar.css'
+import "./NavBar.css";
 
 const useStyles = makeStyles((theme) => ({
   navBar: {
-    background: "linear-gradient(180deg, #983019 3.69%, #FFCE6D 135.4%)"
+    background: "linear-gradient(180deg, #983019 3.69%, #FFCE6D 135.4%)",
   },
   navlinks: {
     marginLeft: theme.spacing(10),
@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
   },
   logoImage: {
     width: "100px",
-    marginTop: "10px"
-  }
+    marginTop: "10px",
+  },
 }));
 
 function NavBar() {
@@ -44,7 +44,7 @@ function NavBar() {
         <CssBaseline />
         <Toolbar>
           {isMobile ? (
-            <Drawer/>
+            <Drawer />
           ) : (
             <div className={classes.navlinks}>
               <Link to="/" className={classes.link}>

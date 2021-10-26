@@ -18,13 +18,16 @@ import Info from "@mui/icons-material/Info";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
+  drawer: {
+    background: "#6a784d",
+  },
   link: {
     textDecoration: "none",
     color: "blue",
     fontSize: "20px",
   },
   icon: {
-    color: "white",
+    color: "blue",
   },
 }));
 

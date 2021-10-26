@@ -9,10 +9,15 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import DrawerComponent from "../Drawer/Drawer";
+import Drawer from "../Drawer/Drawer";
 import ZestyLogo from '../../logo.png'
 
+import './NavBar.css'
+
 const useStyles = makeStyles((theme) => ({
+  navBar: {
+    background: "linear-gradient(180deg, #983019 3.69%, #FFCE6D 135.4%)"
+  },
   navlinks: {
     marginLeft: theme.spacing(10),
     display: "flex",
@@ -24,17 +29,7 @@ const useStyles = makeStyles((theme) => ({
   logoImage: {
     width: "100px",
     marginTop: "10px"
-  },
-  link: {
-    textDecoration: "none",
-    color: "white",
-    fontSize: "20px",
-    marginLeft: theme.spacing(20),
-    "&:hover": {
-      color: "yellow",
-      borderBottom: "1px solid white",
-    },
-  },
+  }
 }));
 
 function NavBar() {
@@ -45,11 +40,11 @@ function NavBar() {
   return (
     // I think we can delete the nav here - check with Blake
     <nav className="nav-bar">
-      <AppBar position="static">
+      <AppBar position="static" className={classes.navBar}>
         <CssBaseline />
         <Toolbar>
           {isMobile ? (
-            <DrawerComponent />
+            <Drawer/>
           ) : (
             <div className={classes.navlinks}>
               <Link to="/" className={classes.link}>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import {
   Drawer,
+  Typography,
+  Box,
   IconButton,
   List,
   ListItem,
@@ -8,6 +10,11 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import ListAltOutlined from "@mui/icons-material/ListAltOutlined";
+import FilterListOutlined from "@mui/icons-material/FilterListOutlined";
+import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
+import Info from "@mui/icons-material/Info";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
@@ -31,22 +38,48 @@ function DrawerComponent() {
         <List>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/">Home</Link>
+              <Link to="/">
+                <Box display="flex" alignItems="center">
+                  <HomeOutlinedIcon /> <Typography>Home</Typography>
+                </Box>
+              </Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/meal-list">Meal List</Link>
+              <Link to="/preferences">
+                <Box display="flex" alignItems="center">
+                  <FilterListOutlined /> <Typography>Preferences</Typography>
+                </Box>
+              </Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/shopping-list">Shopping List</Link>
+              <Link to="/my-meal-list">
+                <Box display="flex" alignItems="center">
+                  <ListAltOutlined /> <Typography>My Meal List</Typography>
+                </Box>
+              </Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/preferences">Preferences</Link>
+              <Link to="/shopping-list">
+                <Box display="flex" alignItems="center">
+                  <ShoppingCartOutlined />{" "}
+                  <Typography>Shopping List</Typography>
+                </Box>
+              </Link>
+            </ListItemText>
+          </ListItem>
+          <ListItem onClick={() => setOpenDrawer(false)}>
+            <ListItemText>
+              <Link to="/help">
+                <Box display="flex" alignItems="center">
+                  <Info /> <Typography>Help</Typography>
+                </Box>
+              </Link>
             </ListItemText>
           </ListItem>
         </List>

@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { FavoriteContext } from "../Contexts/FavoriteContext";
+
+import PageTitle from '../Components/PageTitle/PageTitle';
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -59,6 +61,7 @@ function MealList(meal) {
 
   return (
     <div>
+      <PageTitle text="My meal list" />
       <div>{favorites !== [] ? favoritesList : "Your meal list is empty!"}</div>
       <EmailButton mealList={favorites}/>
     </div>

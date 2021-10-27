@@ -1,12 +1,11 @@
 import React from "react";
+import PageTitle from '../Components/PageTitle/PageTitle';
 import SearchBar from "../Components/SearchBar/SearchBar";
 
 function Home() {
   return (
     <div className="home">
-      <div>
-        <h1 className="greeting">Hello! What will you be planning to make?</h1>
-      </div>
+      <PageTitle text="Hello! What are you planning to make?" />
       <SearchBar />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { FavoriteContext } from "../Contexts/FavoriteContext";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -7,12 +7,19 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Link } from "react-router-dom";
+import EmailButton from '../Components/EmailButton/EmailButton'
 
 //create function to remove favorite based off of id
 
 function MealList(meal) {
+  const [email, setEmail] = useState("");
+
   const { favorites } = useContext(FavoriteContext);
-  console.log(favorites);
+  // console.log(favorites);
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+  }
 
   const favoritesList = favorites.map((favorite) => {
     // const removeFromFavorite = (meal) => {
@@ -20,7 +27,7 @@ function MealList(meal) {
     //   console.log(favorites);
     // };
     return (
-      <Box key={favorite.key} sx={{ flexGrow: 1 }}>
+      <Box key={favorite.id} sx={{ flexGrow: 1 }}>
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
@@ -28,7 +35,7 @@ function MealList(meal) {
         >
           <Grid item xs={6} md={8}>
             {/* <Item> */}
-            <Link key={favorite.id} to={`/meal/${favorite.id}`}>
+            <Link to={`/meal/${favorite.id}`}>
               <Card sx={{ maxWidth: 600 }}>
                 <CardMedia
                   component="img"
@@ -52,8 +59,17 @@ function MealList(meal) {
       </Box>
     );
   });
+
   return (
-    <div>{favoritesList ? favoritesList : "Your meal list is empty!"}</div>
+    <div>
+      <div>{favoritesList ? favoritesList : "Your meal list is empty!"}</div>
+      <form >
+            <label>Please enter your email</label>
+            <input type="email" placeholder="email" onChange={handleEmail} />
+            <EmailButton mealList={favorites} email={email} />
+      </form>
+    </div>
+    
   );
 }
 export default MealList;

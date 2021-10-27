@@ -52,7 +52,7 @@ function Meal() {
         ingredients={ingredients}
         directions={directions}
       />
-
+      {/* use sweet alert */}
       <button onClick={() => addToFavorite(meal)}>Add to MealList</button>
     </main>
   );

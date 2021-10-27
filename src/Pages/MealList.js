@@ -49,10 +49,10 @@ function MealList(meal) {
                   </Typography>
                 </CardContent>
                 {/* <button onClick={() => removeFromFavorite(meal)}>
-            Remove from meal list
-          </button> */}
+                  Remove from meal list
+                </button> */}
               </Card>
-              </Link>
+            </Link>
             {/* </Item> */}
           </Grid>
         </Grid>
@@ -62,7 +62,7 @@ function MealList(meal) {
 
   return (
     <div>
-      <div>{favoritesList ? favoritesList : "Your meal list is empty!"}</div>
+      <div>{favorites !== [] ? favoritesList : "Your meal list is empty!"}</div>
       <form >
             <label>Please enter your email</label>
             <input type="email" placeholder="email" onChange={handleEmail} />

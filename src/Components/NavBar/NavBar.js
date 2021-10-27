@@ -65,7 +65,7 @@ function NavBar() {
             </div>
           )}
           <Typography variant="h4" className={classes.logo}>
-            <img className={classes.logoImage} src={ZestyLogo} alt="" />
+            <img className={classes.logoImage} src={ZestyLogo} alt="logo" />
           </Typography>
         </Toolbar>
       </AppBar>

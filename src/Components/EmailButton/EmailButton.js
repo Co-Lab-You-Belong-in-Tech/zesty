@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import emailjs from 'emailjs-com';
 
 // this works to send 1 recipe. How can I send more?
+// now I need to click button twice?!
 
 function EmailButton({ mealList, email }) {
     const [title, setTitle] = useState("");
@@ -22,10 +23,11 @@ function EmailButton({ mealList, email }) {
       setDirections(dir)
     }
 
-    const isValid = () => {
-        getFormValues(mealList[0].title, mealList[0].extendedIngredients, mealList[0].analyzedInstructions[0].steps)
+    const isValid = async() => {
+        await getFormValues(mealList[0].title, mealList[0].extendedIngredients, mealList[0].analyzedInstructions[0].steps)
+        
 
-        const checkValidity = (value) => {
+        const checkValidity = async(value) => {
           const valid = value !== undefined && value !== "" && value !== [];
           return valid ? true : false
         }
@@ -48,8 +50,8 @@ function EmailButton({ mealList, email }) {
         }
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = async(e) => {
+        e.preventDefault()
     
         if(isValid()) {
     

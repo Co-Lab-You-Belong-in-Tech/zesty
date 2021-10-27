@@ -4,10 +4,11 @@ import emailjs from 'emailjs-com';
 // this works to send 1 recipe. How can I send more?
 // now I need to click button twice?!
 
-function EmailButton({ mealList, email }) {
+function EmailButton({ mealList }) {
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState([]);
-    const [directions, setDirections] = useState([])
+    const [directions, setDirections] = useState([]);
+    const [email, setEmail] = useState("");
 
     const getFormValues = (title, ingredients, directions) => {
       setTitle(title)
@@ -23,11 +24,8 @@ function EmailButton({ mealList, email }) {
       setDirections(dir)
     }
 
-    const isValid = async() => {
-        await getFormValues(mealList[0].title, mealList[0].extendedIngredients, mealList[0].analyzedInstructions[0].steps)
-        
-
-        const checkValidity = async(value) => {
+    const isValid = () => {
+        const checkValidity = (value) => {
           const valid = value !== undefined && value !== "" && value !== [];
           return valid ? true : false
         }
@@ -51,7 +49,9 @@ function EmailButton({ mealList, email }) {
     }
 
     const handleSubmit = async(e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        getFormValues(mealList[0].title, mealList[0].extendedIngredients, mealList[0].analyzedInstructions[0].steps)
     
         if(isValid()) {
     
@@ -87,10 +87,18 @@ function EmailButton({ mealList, email }) {
     
     }
 
+    const handleEmail = (e) => {
+        setEmail(e.target.value)
+      }
 
     return (
-        <button type="submit" onClick={handleSubmit}>Send Meal List</button>
+        <form onSubmit={handleSubmit}>
+            <label>Please enter your email</label>
+            <input type="email" placeholder="email" onChange={handleEmail} />
+            <button type="submit">Send Meal List</button>
+        </form>
     );
 };
 
 export default EmailButton;
+

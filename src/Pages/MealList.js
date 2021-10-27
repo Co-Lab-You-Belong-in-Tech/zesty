@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { FavoriteContext } from "../Contexts/FavoriteContext";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -12,14 +12,11 @@ import EmailButton from '../Components/EmailButton/EmailButton'
 //create function to remove favorite based off of id
 
 function MealList(meal) {
-  const [email, setEmail] = useState("");
 
   const { favorites } = useContext(FavoriteContext);
   // console.log(favorites);
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
+  
 
   const favoritesList = favorites.map((favorite) => {
     // const removeFromFavorite = (meal) => {
@@ -63,11 +60,7 @@ function MealList(meal) {
   return (
     <div>
       <div>{favorites !== [] ? favoritesList : "Your meal list is empty!"}</div>
-      <form >
-            <label>Please enter your email</label>
-            <input type="email" placeholder="email" onChange={handleEmail} />
-            <EmailButton mealList={favorites} email={email} />
-      </form>
+      <EmailButton mealList={favorites}/>
     </div>
     
   );

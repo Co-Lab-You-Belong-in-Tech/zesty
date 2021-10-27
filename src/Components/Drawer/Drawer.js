@@ -25,7 +25,11 @@ const useStyles = makeStyles(() => ({
     fontSize: "20px",
   },
   icon: {
-    color: "blue",
+    color: "#fff",
+  },
+  paper: {
+    background: "#6a784d",
+    color: "#ffffff",
   },
 }));
 
@@ -35,7 +39,11 @@ function DrawerComponent() {
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <>
-      <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
+      <Drawer
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        classes={{ paper: classes.paper }}
+      >
         <List>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>

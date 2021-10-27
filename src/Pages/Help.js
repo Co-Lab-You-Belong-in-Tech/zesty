@@ -8,16 +8,9 @@ import {
   ListItemText,
   Typography,
   Box,
-  makeStyles,
 } from "@material-ui/core";
 
 import "../App.css";
-
-const useStyles = makeStyles(() => ({
-  icon: {
-    color: "blue",
-  },
-}));
 
 function Help() {
   return (

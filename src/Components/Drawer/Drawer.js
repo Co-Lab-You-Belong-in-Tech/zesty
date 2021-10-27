@@ -16,11 +16,9 @@ import FilterListOutlined from "@mui/icons-material/FilterListOutlined";
 import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
 import Info from "@mui/icons-material/Info";
 import { Link } from "react-router-dom";
+// import ".../App.css";
 
 const useStyles = makeStyles(() => ({
-  drawer: {
-    background: "#6a784d",
-  },
   link: {
     textDecoration: "none",
     color: "blue",

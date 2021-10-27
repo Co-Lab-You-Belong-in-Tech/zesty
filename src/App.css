@@ -78,3 +78,6 @@
   line-height: 2;
   margin: 20px 0 0 0;
 }
+.MuiDrawer-paperAnchorLeft {
+  background-color: #6a784d;
+}

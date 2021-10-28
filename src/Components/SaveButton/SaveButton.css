@@ -4,17 +4,18 @@
   justify-content: flex-end;
 }
 
-.link-button {
+.save-button {
   background-color: none;
   font-size: 1.125rem;
   font-family: "Montserrat", sans-serif;
-  margin-right: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
   outline: none;
   border: none;
   background-color: transparent;
 }
 
-.link-button:hover {
+.save-button:hover {
   cursor: pointer;
   text-decoration: underline;
 }

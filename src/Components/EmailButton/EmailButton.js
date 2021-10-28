@@ -95,4 +95,3 @@ function EmailButton({ recipe }) {
 };
 
 export default EmailButton;
-

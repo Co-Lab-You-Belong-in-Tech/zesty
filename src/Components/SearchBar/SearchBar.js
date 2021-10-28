@@ -57,7 +57,7 @@ export default function SearchBar() {
 
   return (
     <>
-      <div className="search">
+      <div style={{ maxWidth: "100%" }}>
         <section className="search-bar">
           <form onSubmit={search}>
             <input

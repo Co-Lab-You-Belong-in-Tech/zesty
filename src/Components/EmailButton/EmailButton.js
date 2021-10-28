@@ -2,28 +2,34 @@ import React, {useState} from 'react';
 import emailjs from 'emailjs-com';
 
 // this works to send 1 recipe. How can I send more?
+// only works when clicked twice :(
 
-function EmailButton({ mealList }) {
+function EmailButton({ recipe, email }) {
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState([]);
     const [directions, setDirections] = useState([]);
-    const [email, setEmail] = useState("");
+    const [url, setUrl] = useState("")
 
-    const getFormValues = (title, ingredients, directions) => {
-      setTitle(title);
+    const getFormValues = (recipe) => {
+      setTitle(recipe.title);
         
-      const ingr = ingredients.map((ingredient) => {
+      const ingr = recipe.extendedIngredients.map((ingredient) => {
         return ingredient.originalString;
       });
       setIngredients(ingr);
       
-      const dir = directions.map((direction) => {
+      const dir = recipe.analyzedInstructions[0].steps.map((direction) => {
         return direction.step;
       });
       setDirections(dir);
+
+      setUrl(recipe.sourceUrl)
+
+      return (title === '' && ingredients === [] && directions === [] && url === '')
     };
 
     const isValid = () => {
+
         const checkValidity = (value) => {
           const valid = value !== undefined && value !== "" && value !== [];
           return valid ? true : false
@@ -32,12 +38,14 @@ function EmailButton({ mealList }) {
         const isNameValid = checkValidity(title);
         const isIngredientsValid = checkValidity(ingredients);
         const isDirectionsValid = checkValidity(directions);
+        const isUrlValid = checkValidity(url)
         const isEmailValid = checkValidity(email);
 
         if (
           isNameValid &&
           isIngredientsValid &&
           isDirectionsValid &&
+          isUrlValid &&
           isEmailValid
         ) {
           return true
@@ -47,20 +55,21 @@ function EmailButton({ mealList }) {
         };
     };
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        getFormValues(mealList[0].title, mealList[0].extendedIngredients, mealList[0].analyzedInstructions[0].steps);
+        getFormValues(recipe);
         
         // having this log here makes state update faster - so weird!
-        console.log(title, ingredients, directions, email);
+        console.log(title, ingredients, directions, url, email);
 
         if(isValid()) {
     
           let templateParams = {
-            name: title,
+            title: title,
             ingredients: ingredients,
             directions: directions,
+            url: url,
             email: email
           };
 
@@ -81,24 +90,20 @@ function EmailButton({ mealList }) {
     
           console.log(`
           ----SUBMITTING----
-          Recipe: ${title}
-          Ingredients: ${ingredients}
+          Recipe: ${title},
+          Ingredients: ${ingredients},
           Directions: ${directions},
+          Source: ${url}
           Email: ${email}
           `);
         };
-        setEmail("");
     };
 
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
-      }
+    
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>Please enter your email</label>
-            <input type="email" placeholder="email" onChange={handleEmail} />
-            <button type="submit">Send Meal List</button>
+          <button type="submit">Email recipe</button>
         </form>
     );
 };

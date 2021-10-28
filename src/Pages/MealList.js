@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FavoriteContext } from "../Contexts/FavoriteContext";
 
 import PageTitle from '../Components/PageTitle/PageTitle';
@@ -14,13 +14,12 @@ import EmailButton from '../Components/EmailButton/EmailButton'
 //create function to remove favorite based off of id
 
 function MealList(meal) {
-
+  const [email, setEmail] = useState("");
   const { favorites } = useContext(FavoriteContext);
   // console.log(favorites);
 
-  
-
   const favoritesList = favorites.map((favorite) => {
+
     // const removeFromFavorite = (meal) => {
     //   favorites.pop(meal);
     //   console.log(favorites);
@@ -34,24 +33,28 @@ function MealList(meal) {
         >
           <Grid item xs={6} md={8}>
             {/* <Item> */}
-            <Link to={`/meal/${favorite.id}`}>
+            
               <Card sx={{ maxWidth: 600 }}>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image={favorite.image}
-                  alt={favorite.title}
-                />
+                <Link to={`/meal/${favorite.id}`}> 
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image={favorite.image}
+                    alt={favorite.title}
+                  />
+                </Link>
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="div">
                     {favorite.title}
                   </Typography>
+                  <EmailButton recipe={favorite} email={email} />
                 </CardContent>
                 {/* <button onClick={() => removeFromFavorite(meal)}>
                   Remove from meal list
                 </button> */}
+                
               </Card>
-            </Link>
+            
             {/* </Item> */}
           </Grid>
         </Grid>
@@ -59,11 +62,16 @@ function MealList(meal) {
     );
   });
 
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+  }
+
   return (
     <div>
       <PageTitle text="My meal list" />
-      <div>{favorites !== [] ? favoritesList : "Your meal list is empty!"}</div>
-      <EmailButton mealList={favorites}/>
+      <label>Please enter your email</label>
+      <input type="email" placeholder="email" onChange={handleEmail} />
+      <div>{favoritesList}</div>
     </div>
     
   );

@@ -4,6 +4,7 @@ import MealPageImage from "../Components/MealPageImage/MealPageImage";
 import MealHeader from "../Components/MealHeader/MealHeader";
 import MealTabs from "../Components/MealTabs/MealTabs";
 import { FavoriteContext } from "../Contexts/FavoriteContext";
+import swal from 'sweetalert';
 
 const apiKey = `${process.env.REACT_APP_RECIPE_API_KEY}`;
 
@@ -19,7 +20,8 @@ function Meal() {
   const addToFavorite = (meal) => {
     //loop through favorites array and if it doesn't equal id then push
     favorites.push(meal);
-    console.log(favorites);
+    swal("Success!", "This Recipe has been added to your meal list!", "success");
+    // console.log(favorites);
   };
 
   useEffect(() => {
@@ -52,7 +54,6 @@ function Meal() {
         ingredients={ingredients}
         directions={directions}
       />
-
       <button onClick={() => addToFavorite(meal)} className="meal-btn">
         Add to Meal List
       </button>

@@ -9,6 +9,7 @@ import { maxTimeOptions } from "../utils/maxTimeOptions";
 import { allergyOptions } from "../utils/allergyOptions";
 import { dietOptions } from "../utils/dietOptions";
 
+import PageTitle from '../Components/PageTitle/PageTitle';
 import SaveButton from '../Components/SaveButton/SaveButton';
 import PreferenceOption from '../Components/PreferenceOption/PreferenceOption';
 import AllergiesOption from '../Components/AllergiesOption/AllergiesOption';
@@ -75,6 +76,7 @@ function Preferences() {
 
   return (    
     <div className={classes.root}>
+      <PageTitle text="Set your preferences!" />
       <SaveButton text="Save" />
       <PreferenceOption 
         panelExpanded='panel1' 

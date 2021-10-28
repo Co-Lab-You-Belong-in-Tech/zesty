@@ -66,7 +66,6 @@ export default function SearchBar() {
               onChange={handleQueryChange}
               autoFocus={true}
             />
-
             <button
               className="search-btn"
               variant="contained"

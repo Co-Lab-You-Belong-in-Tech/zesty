@@ -1,4 +1,5 @@
 import React from "react";
+import PageTitle from '../Components/PageTitle/PageTitle';
 import "../App.css";
 import RadsImg from "../Rads-01.png";
 import CheckIcon from "@mui/icons-material/Check";
@@ -15,6 +16,7 @@ import "../App.css";
 function Help() {
   return (
     <div className="help">
+      <PageTitle text="Your meal planning assistant made easy!" />
       <br />
       <List>
         <ListItem>

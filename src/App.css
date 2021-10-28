@@ -105,3 +105,12 @@ hr {
 .helpScreen-icon {
   margin: 0 10px 0 0;
 }
+
+.help-link {
+  color: #6e1916;
+}
+
+.help-link:hover {
+  color: #410e0c;
+  text-decoration: underline;
+}

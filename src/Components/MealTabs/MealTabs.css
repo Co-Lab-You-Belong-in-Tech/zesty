@@ -1,3 +1,11 @@
+a {
+  color: #6e1916;
+}
+
+a:hover {
+  color: #410e0c;
+}
+
 .meal-info,
 .ingredients,
 .directions {

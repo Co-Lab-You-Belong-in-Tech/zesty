@@ -72,8 +72,14 @@ function Help() {
                 <Typography>
                   As we continue to build Zesty, we'd love your feedback! Feel
                   free to send us an
-                  <a href="mailto:zestier.than.ever@gmail.com"> e-mail</a> with
-                  your ideas!
+                  <a
+                    href="mailto:zestier.than.ever@gmail.com"
+                    className="help-link"
+                  >
+                    {" "}
+                    email
+                  </a>{" "}
+                  with your ideas!
                 </Typography>
               </Box>
             </ListItemText>

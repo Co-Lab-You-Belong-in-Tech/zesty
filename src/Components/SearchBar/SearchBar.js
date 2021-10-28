@@ -64,7 +64,7 @@ export default function SearchBar() {
               type="text"
               placeholder="Search recipes and ingredients..."
               onChange={handleQueryChange}
-              autoFocus={true}
+              autoFocus={false}
             />
             <button
               className="search-btn"

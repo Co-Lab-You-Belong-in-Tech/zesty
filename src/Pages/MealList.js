@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import EmailButton from "../Components/EmailButton/EmailButton";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-
 const theme = createTheme({
   palette: {
     background: "#6a784d;",
@@ -53,8 +52,12 @@ function MealList(meal) {
 
   return (
     <div style={{ maxWidth: "100%" }}>
-      <PageTitle text="My meal list" />
-      <div>{favorites.length > 0 ? favoritesList : "Your meal list is empty!"}</div>
+      <PageTitle text="My Meal List" />
+      <div>
+        {favorites.length > 0
+          ? favoritesList
+          : "Your list is empty! Go back to the Homepage to add a new meal!"}
+      </div>
     </div>
   );
 }

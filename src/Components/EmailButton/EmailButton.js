@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import emailjs from 'emailjs-com';
 import swal from 'sweetalert';
 
-function EmailButton({ recipe, email }) {
+function EmailButton({ recipe }) {
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState([]);
     const [url, setUrl] = useState("");
@@ -25,14 +25,12 @@ function EmailButton({ recipe, email }) {
         
         const isNameValid = checkValidity(title);
         const isIngredientsValid = checkValidity(ingredients);
-        const isUrlValid = checkValidity(url)
-        const isEmailValid = checkValidity(email);
+        const isUrlValid = checkValidity(url);
 
         if (
           isNameValid &&
           isIngredientsValid &&
-          isUrlValid &&
-          isEmailValid
+          isUrlValid 
         ) {
           return true
           
@@ -44,6 +42,8 @@ function EmailButton({ recipe, email }) {
     const handleSubmit = async(e) => {
       e.preventDefault();
 
+      let email = prompt("What email would you like to send this recipe to?");
+
       if(isValid()) {
     
         let templateParams = {
@@ -53,7 +53,8 @@ function EmailButton({ recipe, email }) {
           email: email
         };
 
-        // This is the Zesty one, switch before demo!
+        // This is the Zesty one, SWITCH BEFORE GOING LIVE!
+
         // emailjs.send(
         //   "Zesty",
         //   "template_rvxwqyr",
@@ -80,7 +81,7 @@ function EmailButton({ recipe, email }) {
       }
       else {
         swal("Oh no!", "Something went wrong - check that your email is correct, or contact us at zestier.than.ever@gmail.com", "error")
-      }
+      };
     };
 
     

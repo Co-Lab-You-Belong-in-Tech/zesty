@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { FavoriteContext } from "../Contexts/FavoriteContext";
 
 
@@ -18,6 +18,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 // import PropTypes from "prop-types";
 
 
+
 const theme = createTheme({
   palette: {
     background: "#6a784d;",
@@ -25,9 +26,7 @@ const theme = createTheme({
 });
 
 function MealList(meal) {
-  const [email, setEmail] = useState("");
   const { favorites } = useContext(FavoriteContext);
-  // console.log(favorites);
 
   const favoritesList = favorites.map((favorite) => {
 
@@ -58,7 +57,7 @@ function MealList(meal) {
               >
                 {favorite.title}
               </Typography>
-              <EmailButton recipe={favorite} email={email} />
+              <EmailButton recipe={favorite} />
             </CardContent>
           </Card>
           
@@ -67,16 +66,10 @@ function MealList(meal) {
     );
   });
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
-
   return (
     <div style={{ maxWidth: "100%" }}>
       <PageTitle text="My meal list" />
-      <label>Please enter your email</label>
-      <input type="email" placeholder="email" onChange={handleEmail} />
-      <div>{favoritesList ? favoritesList : "Your meal list is empty!"}</div>
+      <div>{favorites.length > 0 ? favoritesList : "Your meal list is empty!"}</div>
     </div>
   );
 }

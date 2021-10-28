@@ -3,6 +3,7 @@ import PageTitle from "../Components/PageTitle/PageTitle";
 import "../App.css";
 import RadsImg from "../Rads-01.png";
 import CheckIcon from "@mui/icons-material/Check";
+import FeedbackIcon from "@mui/icons-material/Feedback";
 import {
   List,
   ListItem,
@@ -63,8 +64,22 @@ function Help() {
             </Box>
           </ListItemText>
         </ListItem>
+        <div className="feedback-message">
+          <ListItem>
+            <ListItemText>
+              <Box display="flex" alignItems="center">
+                <FeedbackIcon className="helpScreen-icon" />
+                <Typography>
+                  As we continue to build Zesty, we'd love your feedback! Feel
+                  free to send us an
+                  <a href="mailto:zestier.than.ever@gmail.com"> e-mail</a> with
+                  your ideas!
+                </Typography>
+              </Box>
+            </ListItemText>
+          </ListItem>
+        </div>
       </List>
-
       <img src={RadsImg} alt="radishes" className="rads-img" />
     </div>
   );

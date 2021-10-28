@@ -1,6 +1,6 @@
 hr {
   max-width: 230px;
-  margin: 20px auto 0;
+  margin: 20px auto 10px;
   color: #726659;
 }
 
@@ -19,7 +19,7 @@ hr {
 }
 
 .help {
-  margin: 10px 20px;
+  margin: 10px 2px 0;
 }
 
 .Help .container {

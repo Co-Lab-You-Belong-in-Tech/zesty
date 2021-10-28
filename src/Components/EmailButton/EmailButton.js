@@ -2,25 +2,20 @@ import React, {useState, useEffect} from 'react';
 import emailjs from 'emailjs-com';
 import swal from 'sweetalert';
 
-// this works to send 1 recipe. How can I send more?
-// only works when clicked twice :(
-
 function EmailButton({ recipe, email }) {
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState([]);
-    // const [directions, setDirections] = useState([]);
     const [url, setUrl] = useState("");
 
     useEffect(() => {
       setTitle(recipe.title);
       setUrl(recipe.sourceUrl);
-
       const ingr = recipe.extendedIngredients.map((ingredient) => {
-        return ingredient.originalString
-      })
-      setIngredients(ingr)
+        return "• " + ingredient.originalString
+      });
+      setIngredients(ingr);
 
-    }, [recipe])
+    }, [recipe]);
 
     const isValid = () => {
         const checkValidity = (value) => {
@@ -30,14 +25,12 @@ function EmailButton({ recipe, email }) {
         
         const isNameValid = checkValidity(title);
         const isIngredientsValid = checkValidity(ingredients);
-        // const isDirectionsValid = checkValidity(directions);
         const isUrlValid = checkValidity(url)
         const isEmailValid = checkValidity(email);
 
         if (
           isNameValid &&
           isIngredientsValid &&
-          // isDirectionsValid &&
           isUrlValid &&
           isEmailValid
         ) {
@@ -56,7 +49,6 @@ function EmailButton({ recipe, email }) {
         let templateParams = {
           title: title,
           ingredients: ingredients,
-          // directions: directions,
           url: url,
           email: email
         };

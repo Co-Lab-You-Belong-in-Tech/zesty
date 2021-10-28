@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import emailjs from 'emailjs-com';
 import swal from 'sweetalert';
+import './EmailButton.css'
 
 function EmailButton({ recipe }) {
     const [title, setTitle] = useState("");
@@ -88,7 +89,7 @@ function EmailButton({ recipe }) {
 
     return (
       <form onSubmit={handleSubmit}>
-        <button type="submit">Email recipe</button>
+        <button type="submit" className="email-btn">Email recipe</button>
       </form>
       
     );

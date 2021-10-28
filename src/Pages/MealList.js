@@ -1,17 +1,28 @@
 import React, { useContext, useState } from "react";
 import { FavoriteContext } from "../Contexts/FavoriteContext";
 
+
 import PageTitle from '../Components/PageTitle/PageTitle';
+
+// import Box from "@mui/material/Box";
+
 import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
+
 import { Link } from "react-router-dom";
 import EmailButton from '../Components/EmailButton/EmailButton'
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+// import PropTypes from "prop-types";
 
-//create function to remove favorite based off of id
+
+const theme = createTheme({
+  palette: {
+    background: "#6a784d;",
+  },
+});
 
 function MealList(meal) {
   const [email, setEmail] = useState("");
@@ -20,45 +31,39 @@ function MealList(meal) {
 
   const favoritesList = favorites.map((favorite) => {
 
+    //create function to remove favorite based off of id
+
     // const removeFromFavorite = (meal) => {
     //   favorites.pop(meal);
     //   console.log(favorites);
     // };
     return (
-      <Box key={favorite.id} sx={{ flexGrow: 1 }}>
-        <Grid
-          container
-          spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
-        >
-          <Grid item xs={6} md={8}>
-            {/* <Item> */}
-            
-              <Card sx={{ maxWidth: 600 }}>
-                <Link to={`/meal/${favorite.id}`}> 
-                  <CardMedia
-                    component="img"
-                    height="140"
-                    image={favorite.image}
-                    alt={favorite.title}
-                  />
-                </Link>
-                <CardContent>
-                  <Typography gutterBottom variant="h6" component="div">
-                    {favorite.title}
-                  </Typography>
-                  <EmailButton recipe={favorite} email={email} />
-                </CardContent>
-                {/* <button onClick={() => removeFromFavorite(meal)}>
-                  Remove from meal list
-                </button> */}
-                
-              </Card>
-            
-            {/* </Item> */}
-          </Grid>
-        </Grid>
-      </Box>
+      <ThemeProvider theme={theme}>
+        <CardActions>
+          <Card sx={{ maxWidth: 600 }}>
+            <Link key={favorite.id} to={`/meal/${favorite.id}`}>
+              <CardMedia
+                component="img"
+                height="140"
+                image={favorite.image}
+                title={favorite.title}
+              />
+            </Link>
+            <CardContent className="recipe-card">
+              <Typography
+                gutterBottom
+                // variant="h6"
+                component="div"
+                className="recipe-title"
+              >
+                {favorite.title}
+              </Typography>
+              <EmailButton recipe={favorite} email={email} />
+            </CardContent>
+          </Card>
+          
+        </CardActions>
+      </ThemeProvider>
     );
   });
 
@@ -67,13 +72,12 @@ function MealList(meal) {
   }
 
   return (
-    <div>
+    <div style={{ maxWidth: "100%" }}>
       <PageTitle text="My meal list" />
       <label>Please enter your email</label>
       <input type="email" placeholder="email" onChange={handleEmail} />
-      <div>{favoritesList}</div>
+      <div>{favoritesList ? favoritesList : "Your meal list is empty!"}</div>
     </div>
-    
   );
 }
 export default MealList;

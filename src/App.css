@@ -3,52 +3,51 @@
   text-align: center;
 }
 
-/* .Help {
+.Help .help {
   background: linear-gradient(
     360deg,
     rgba(255, 255, 255, 0) 21.44%,
     #e3a357 55.6%,
     #99311a 102%
   );
-} */
+}
+
+.help {
+  margin: 10px 20px;
+}
 
 .Help .container {
+  max-width: 400px;
   margin: 20px;
   padding: 10px;
   justify-content: center;
   text-align: center;
 }
 
-.Help .logo {
+.Help .rads-img {
   position: absolute;
   width: 180px;
-  height: 108.22px;
+  height: 100%;
   left: 115px;
   top: 111.5px;
-
-  /* background: url(.png); */
 }
-
-.Help .help-title {
+.help-title {
   position: absolute;
   width: 307px;
   height: 58px;
   left: 56px;
   top: 241px;
-
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 12px;
   line-height: 24px;
-  display: flex;
+  margin: 10px 20px;
   align-items: center;
   text-align: center;
-
   color: #3f3f3f;
 }
 
-.Help .helpful-tip-item {
+.helpful-tip-item {
   position: absolute;
   width: 312.06px;
   height: 49px;
@@ -61,6 +60,7 @@
   display: flex;
   align-items: center;
   color: #3f3f3f;
+  margin: 10px 20px;
 }
 .meal-btn {
   color: #ffff;
@@ -80,4 +80,8 @@
 
 .shopping-list-container {
   margin: 5px 25px;
+}
+
+.MuiDrawer-paperAnchorLeft {
+  background-color: #6a784d;
 }

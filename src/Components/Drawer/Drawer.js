@@ -16,18 +16,20 @@ import FilterListOutlined from "@mui/icons-material/FilterListOutlined";
 import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
 import Info from "@mui/icons-material/Info";
 import { Link } from "react-router-dom";
+// import ".../App.css";
 
 const useStyles = makeStyles(() => ({
-  drawer: {
-    background: "#6a784d",
-  },
   link: {
     textDecoration: "none",
     color: "blue",
     fontSize: "20px",
   },
   icon: {
-    color: "blue",
+    color: "#fff",
+  },
+  paper: {
+    background: "#6a784d",
+    color: "#ffffff",
   },
 }));
 
@@ -37,7 +39,11 @@ function DrawerComponent() {
   const [openDrawer, setOpenDrawer] = useState(false);
   return (
     <>
-      <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)}>
+      <Drawer
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+        classes={{ paper: classes.paper }}
+      >
         <List>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>

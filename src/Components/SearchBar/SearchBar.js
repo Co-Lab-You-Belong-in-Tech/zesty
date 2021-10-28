@@ -57,24 +57,25 @@ export default function SearchBar() {
 
   return (
     <>
-      <section className="search-bar">
-        <form onSubmit={search}>
-          <input
-            type="text"
-            placeholder="Search recipes and ingredients..."
-            onChange={handleQueryChange}
-            autoFocus={true}
-          />
-
-          <button
-            className="search-btn"
-            variant="contained"
-            onClick={getRecipes}
-          >
-            Get Recipes
-          </button>
-        </form>
-      </section>
+      <div className="search">
+        <section className="search-bar">
+          <form onSubmit={search}>
+            <input
+              type="text"
+              placeholder="Search recipes and ingredients..."
+              onChange={handleQueryChange}
+              autoFocus={true}
+            />
+            <button
+              className="search-btn"
+              variant="contained"
+              onClick={getRecipes}
+            >
+              Get Recipes
+            </button>
+          </form>
+        </section>
+      </div>
       <RecipeList recipeData={showRecipes} />
     </>
   );

@@ -1,108 +1,101 @@
-import React, { useState } from "react";
-import emailjs from "emailjs-com";
+import React, {useState, useEffect} from 'react';
+import emailjs from 'emailjs-com';
+import swal from 'sweetalert';
+import './EmailButton.css'
 
-// this works to send 1 recipe. How can I send more?
-// only works when clicked twice :(
+function EmailButton({ recipe }) {
+    const [title, setTitle] = useState("");
+    const [ingredients, setIngredients] = useState([]);
+    const [url, setUrl] = useState("");
 
-function EmailButton({ recipe, email }) {
-  const [title, setTitle] = useState("");
-  const [ingredients, setIngredients] = useState([]);
-  const [directions, setDirections] = useState([]);
-  const [url, setUrl] = useState("");
+    useEffect(() => {
+      setTitle(recipe.title);
+      setUrl(recipe.sourceUrl);
+      const ingr = recipe.extendedIngredients.map((ingredient) => {
+        return "• " + ingredient.originalString
+      });
+      setIngredients(ingr);
 
-  const getFormValues = (recipe) => {
-    setTitle(recipe.title);
+    }, [recipe]);
 
-    const ingr = recipe.extendedIngredients.map((ingredient) => {
-      return ingredient.originalString;
-    });
-    setIngredients(ingr);
+    const isValid = () => {
+        const checkValidity = (value) => {
+          const valid = value !== undefined && value !== "" && value !== [];
+          return valid ? true : false
+        };
+        
+        const isNameValid = checkValidity(title);
+        const isIngredientsValid = checkValidity(ingredients);
+        const isUrlValid = checkValidity(url);
 
-    const dir = recipe.analyzedInstructions[0].steps.map((direction) => {
-      return direction.step;
-    });
-    setDirections(dir);
-
-    setUrl(recipe.sourceUrl);
-
-    return (
-      title === "" && ingredients === [] && directions === [] && url === ""
-    );
-  };
-
-  const isValid = () => {
-    const checkValidity = (value) => {
-      const valid = value !== undefined && value !== "" && value !== [];
-      return valid ? true : false;
+        if (
+          isNameValid &&
+          isIngredientsValid &&
+          isUrlValid 
+        ) {
+          return true
+          
+        } else {
+          return false
+        };
     };
 
-    const isNameValid = checkValidity(title);
-    const isIngredientsValid = checkValidity(ingredients);
-    const isDirectionsValid = checkValidity(directions);
-    const isUrlValid = checkValidity(url);
-    const isEmailValid = checkValidity(email);
+    const handleSubmit = async(e) => {
+      e.preventDefault();
 
-    if (
-      isNameValid &&
-      isIngredientsValid &&
-      isDirectionsValid &&
-      isUrlValid &&
-      isEmailValid
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+      let email = prompt("What email would you like to send this recipe to?");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+      if( email !== undefined && 
+          email !== "" && 
+          email !== null &&
+          isValid()) {
+    
+        let templateParams = {
+          title: title,
+          ingredients: ingredients,
+          url: url,
+          email: email
+        };
 
-    getFormValues(recipe);
+        // This is the Zesty one, SWITCH BEFORE GOING LIVE!
 
-    // having this log here makes state update faster - so weird!
-    console.log(title, ingredients, directions, url, email);
+        // emailjs.send(
+        //   "Zesty",
+        //   "template_rvxwqyr",
+        //   templateParams,
+        //   "user_cz4VlkTanRaVSInl80gsa"
+        // );
+  
+        emailjs.send(
+          "Zesty",
+          "zesty-test",
+          templateParams,
+          "user_uFBt7OJSbpoxTLb0kocyH"
+        );
 
-    if (isValid()) {
-      let templateParams = {
-        title: title,
-        ingredients: ingredients,
-        directions: directions,
-        url: url,
-        email: email,
+        swal("Success!", `This recipe has been sent to ${email}`, "success")
+  
+        console.log(`
+        ----SUBMITTING----
+        Recipe: ${title},
+        Ingredients: ${ingredients}
+        Source: ${url},
+        Email: ${email}
+        `);
+      }
+      else {
+        swal("Oh no!", "Something went wrong - check that your email is correct, or contact us at zestier.than.ever@gmail.com", "error")
       };
+    };
 
-      // This is the Zesty one, switch before demo!
-      // emailjs.send(
-      //   "Zesty",
-      //   "template_rvxwqyr",
-      //   templateParams,
-      //   "user_cz4VlkTanRaVSInl80gsa"
-      // );
+    
 
-      emailjs.send(
-        "Zesty",
-        "zesty-test",
-        templateParams,
-        "user_uFBt7OJSbpoxTLb0kocyH"
-      );
-
-      console.log(`
-          ----SUBMITTING----
-          Recipe: ${title},
-          Ingredients: ${ingredients},
-          Directions: ${directions},
-          Source: ${url}
-          Email: ${email}
-          `);
-    }
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <button type="submit">Email recipe</button>
-    </form>
-  );
-}
+    return (
+      <form onSubmit={handleSubmit}>
+        <button type="submit" className="email-btn">Email recipe</button>
+      </form>
+      
+    );
+};
 
 export default EmailButton;

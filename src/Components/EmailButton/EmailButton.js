@@ -45,7 +45,10 @@ function EmailButton({ recipe }) {
 
       let email = prompt("What email would you like to send this recipe to?");
 
-      if(isValid()) {
+      if( email !== undefined && 
+          email !== "" && 
+          email !== null &&
+          isValid()) {
     
         let templateParams = {
           title: title,

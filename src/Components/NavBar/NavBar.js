@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import Drawer from "../Drawer/Drawer";
 import ZestyLogo from "../../logo.png";
 
-import "./NavBar.css";
+// import "./NavBar.css";
 
 const useStyles = makeStyles((theme) => ({
   navBar: {
@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
   navlinks: {
     marginLeft: theme.spacing(10),
     display: "flex",
+    color: "white",
   },
   logo: {
     flexGrow: "1",

@@ -85,3 +85,11 @@
 .MuiDrawer-paperAnchorLeft {
   background-color: #6a784d;
 }
+
+.nav-link {
+  color: #ffffff;
+}
+
+.nav-icon {
+  margin: 0 10px 0 0;
+}

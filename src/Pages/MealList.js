@@ -1,8 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FavoriteContext } from "../Contexts/FavoriteContext";
 
-
-import PageTitle from '../Components/PageTitle/PageTitle';
+import PageTitle from "../Components/PageTitle/PageTitle";
 
 // import Box from "@mui/material/Box";
 
@@ -13,10 +12,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
 import { Link } from "react-router-dom";
-import EmailButton from '../Components/EmailButton/EmailButton'
+import EmailButton from "../Components/EmailButton/EmailButton";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 // import PropTypes from "prop-types";
-
 
 const theme = createTheme({
   palette: {
@@ -30,7 +28,6 @@ function MealList(meal) {
   // console.log(favorites);
 
   const favoritesList = favorites.map((favorite) => {
-
     //create function to remove favorite based off of id
 
     // const removeFromFavorite = (meal) => {
@@ -61,19 +58,18 @@ function MealList(meal) {
               <EmailButton recipe={favorite} email={email} />
             </CardContent>
           </Card>
-          
         </CardActions>
       </ThemeProvider>
     );
   });
 
   const handleEmail = (e) => {
-    setEmail(e.target.value)
-  }
+    setEmail(e.target.value);
+  };
 
   return (
     <div style={{ maxWidth: "100%" }}>
-      <PageTitle text="My meal list" />
+      <PageTitle text="My Meal List" />
       <label>Please enter your email</label>
       <input type="email" placeholder="email" onChange={handleEmail} />
       <div>{favoritesList ? favoritesList : "Your meal list is empty!"}</div>

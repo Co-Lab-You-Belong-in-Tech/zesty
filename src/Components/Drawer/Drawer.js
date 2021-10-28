@@ -21,7 +21,6 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles(() => ({
   link: {
     textDecoration: "none",
-    color: "blue",
     fontSize: "20px",
   },
   icon: {
@@ -29,7 +28,6 @@ const useStyles = makeStyles(() => ({
   },
   paper: {
     background: "#6a784d",
-    color: "#ffffff",
   },
 }));
 
@@ -47,36 +45,39 @@ function DrawerComponent() {
         <List>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/">
+              <Link to="/" className="nav-link">
                 <Box display="flex" alignItems="center">
-                  <HomeOutlinedIcon /> <Typography>Home</Typography>
+                  <HomeOutlinedIcon className="nav-icon" />
+                  <Typography>Home</Typography>
                 </Box>
               </Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/preferences">
+              <Link to="/preferences" className="nav-link">
                 <Box display="flex" alignItems="center">
-                  <FilterListOutlined /> <Typography>Preferences</Typography>
+                  <FilterListOutlined className="nav-icon" />
+                  <Typography>Preferences</Typography>
                 </Box>
               </Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/my-meal-list">
+              <Link to="/my-meal-list" className="nav-link">
                 <Box display="flex" alignItems="center">
-                  <ListAltOutlined /> <Typography>My Meal List</Typography>
+                  <ListAltOutlined className="nav-icon" />
+                  <Typography>My Meal List</Typography>
                 </Box>
               </Link>
             </ListItemText>
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/shopping-list">
+              <Link to="/shopping-list" className="nav-link">
                 <Box display="flex" alignItems="center">
-                  <ShoppingCartOutlined />{" "}
+                  <ShoppingCartOutlined className="nav-icon" />
                   <Typography>Shopping List</Typography>
                 </Box>
               </Link>
@@ -84,9 +85,9 @@ function DrawerComponent() {
           </ListItem>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/help">
+              <Link to="/help" className="nav-link">
                 <Box display="flex" alignItems="center">
-                  <Info /> <Typography>Help</Typography>
+                  <Info className="nav-icon" /> <Typography>Help</Typography>
                 </Box>
               </Link>
             </ListItemText>

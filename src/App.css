@@ -13,6 +13,10 @@ p {
   font-size: 1rem;
 }
 
+span.email-note {
+  font-size: 0.875rem;
+}
+
 button {
   cursor: pointer;
   font-size: 1rem;

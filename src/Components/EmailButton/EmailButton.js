@@ -40,6 +40,7 @@ function EmailButton({ recipe }) {
         };
     };
 
+
     const handleSubmit = async(e) => {
       e.preventDefault();
 
@@ -79,6 +80,7 @@ function EmailButton({ recipe }) {
       else {
         swal("Oh no!", "Something went wrong - check that your email is correct, or contact us at zestier.than.ever@gmail.com", "error")
       };
+      email = ""
     };
 
     

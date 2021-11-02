@@ -29,7 +29,8 @@ function Help() {
       </article>
       <article className="help-item">
         <CheckIcon className="helpScreen-icon" />
-        <p>Don't lose what you saved! EMAIL recipes to yourself before you close the app.</p>
+        <p>Don't lose what you saved! EMAIL recipes to yourself before you close the app. <br/> 
+        <span className="email-note">Note: If email isn't in your inbox, please check your Spam folder. Emails are sent using emailjs.</span></p>
       </article>
       <article className="help-item">
         <FeedbackIcon className="helpScreen-icon" />

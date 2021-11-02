@@ -10,7 +10,7 @@ function SaveButton({ text }) {
 
     return (
         <div className="button-wrap">
-            <button onClick={save} className="link-button" >
+            <button onClick={save} className="save-button" >
                 {text} 
             </button>
         </div>

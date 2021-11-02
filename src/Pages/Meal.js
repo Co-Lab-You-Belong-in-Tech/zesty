@@ -54,9 +54,14 @@ function Meal() {
         ingredients={ingredients}
         directions={directions}
       />
-      <button onClick={() => addToFavorite(meal)} className="meal-btn">
-        Add to Meal List
-      </button>
+      {
+        meal.summary === undefined 
+        ? <p>loading</p>
+        : <button onClick={() => addToFavorite(meal)} className="meal-btn">
+            Add to Meal List
+          </button>
+      }
+      
     </main>
   );
 }

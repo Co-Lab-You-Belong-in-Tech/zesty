@@ -5,12 +5,11 @@ import RadsImg from "../Rads-01.png";
 import CheckIcon from "@mui/icons-material/Check";
 import FeedbackIcon from "@mui/icons-material/Feedback";
 
-
-import "../App.css";
+// can make a reusable component for HelpItem
 
 function Help() {
   return (
-    <section className="help">
+    <main className="page-container">
       <PageTitle
         text="Meal Planning Made EASY!"
         className="help-title"
@@ -39,7 +38,7 @@ function Help() {
           or send us an <a href="mailto:zestier.than.ever@gmail.com" className="help-link">email</a> with your ideas!</p>
       </article>
       <img src={RadsImg} alt="radishes" className="rads-img" />
-    </section>
+    </main>
   );
 }
 

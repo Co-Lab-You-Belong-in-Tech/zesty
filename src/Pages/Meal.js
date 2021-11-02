@@ -41,7 +41,7 @@ function Meal() {
   }, [id]);
 
   return (
-    <main>
+    <main className="page-container">
       <MealPageImage src={meal.image} />
       <MealHeader
         title={meal.title}

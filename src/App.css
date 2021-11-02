@@ -1,7 +1,16 @@
+.page-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 hr {
   max-width: 230px;
   margin: 0 auto;
   color: #726659;
+}
+
+p {
+  font-size: 1rem;
 }
 
 .App {
@@ -16,11 +25,6 @@ hr {
     #e3a357 55.6%,
     #99311a 102%
   );
-}
-
-.help {
-  max-width: 600px;
-  margin: 0 auto;
 }
 
 .Help .container {

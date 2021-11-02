@@ -51,14 +51,14 @@ function MealList(meal) {
   });
 
   return (
-    <div style={{ maxWidth: "100%" }}>
+    <main className="page-container">
       <PageTitle text="My Meal List" />
-      <div>
+      <section>
         {favorites.length > 0
           ? favoritesList
-          : "Your list is empty! Go back to the Homepage to add a new meal!"}
-      </div>
-    </div>
+          : <p>Your list is empty! Go back to the Homepage to add a new meal!</p>}
+      </section>
+    </main>
   );
 }
 export default MealList;

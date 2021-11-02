@@ -46,13 +46,6 @@ function Preferences() {
   });
 
   const useStyles = makeStyles(() => ({
-    root: {
-      margin: "auto",
-      [accordionTheme.breakpoints.up("desktop")]: {
-        width: 600,
-        margin: "auto",
-      },
-    },
     accordion: {
       marginBottom: 0,
     },
@@ -78,7 +71,7 @@ function Preferences() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <main className="page-container">
       <PageTitle text="Set Your Preferences!" />
       <SaveButton text="Save" />
       <PreferenceOption
@@ -121,7 +114,7 @@ function Preferences() {
         name="diet"
         accordionClass={classes.accordion}
       />
-    </div>
+    </main>
   );
 }
 

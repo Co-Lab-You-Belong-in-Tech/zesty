@@ -45,6 +45,8 @@ function EmailButton({ recipe }) {
 
       let email = prompt("What email would you like to send this recipe to?");
 
+      console.log(title)
+
       if( email !== undefined && 
           email !== "" && 
           email !== null &&
@@ -57,20 +59,11 @@ function EmailButton({ recipe }) {
           email: email
         };
 
-        // This is the Zesty one, SWITCH BEFORE GOING LIVE!
-
-        // emailjs.send(
-        //   "Zesty",
-        //   "template_rvxwqyr",
-        //   templateParams,
-        //   "user_cz4VlkTanRaVSInl80gsa"
-        // );
-  
         emailjs.send(
           "Zesty",
-          "zesty-test",
+          "template_rvxwqyr",
           templateParams,
-          "user_uFBt7OJSbpoxTLb0kocyH"
+          "user_cz4VlkTanRaVSInl80gsa"
         );
 
         swal("Success!", `This recipe has been sent to ${email}`, "success")

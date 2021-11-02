@@ -1,6 +1,6 @@
 hr {
   max-width: 230px;
-  margin: 20px auto 10px;
+  margin: 0 auto;
   color: #726659;
 }
 
@@ -19,7 +19,8 @@ hr {
 }
 
 .help {
-  margin: 10px 2px 0;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .Help .container {
@@ -30,13 +31,6 @@ hr {
   text-align: center;
 }
 
-.Help .rads-img {
-  position: absolute;
-  width: 180px;
-  height: 100%;
-  left: 115px;
-  top: 111.5px;
-}
 .Help .help-title {
   position: absolute;
   width: 307px;
@@ -113,4 +107,14 @@ hr {
 .help-link:hover {
   color: #410e0c;
   text-decoration: underline;
+}
+
+.help-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 15px 20px;
+}
+
+.help-item p {
+  text-align: left;
 }

@@ -9,6 +9,7 @@ import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import EmailButton from "../Components/EmailButton/EmailButton";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Grid from "@material-ui/core/Grid";
 
 const theme = createTheme({
   palette: {
@@ -16,35 +17,39 @@ const theme = createTheme({
   },
 });
 
-function MealList(meal) {
+function MealList() {
   const { favorites } = useContext(FavoriteContext);
 
   const favoritesList = favorites.map((favorite) => {
-    //create function to remove favorite based off of id
-
-    // const removeFromFavorite = (meal) => {
-    //   favorites.pop(meal);
-    //   console.log(favorites);
-    // };
     return (
       <ThemeProvider theme={theme}>
         <Box sx={{ width: "100%" }}>
-          <Card sx={{ maxWidth: 600, mx: 5, mt: 2 }}>
-            <Link key={favorite.id} to={`/meal/${favorite.id}`}>
-              <CardMedia
-                component="img"
-                height="140"
-                image={favorite.image}
-                title={favorite.title}
-              />
-            </Link>
-            <CardContent className="recipe-card">
-              <Typography gutterBottom component="div" className="recipe-title">
-                {favorite.title}
-              </Typography>
-              <EmailButton recipe={favorite} />
-            </CardContent>
-          </Card>
+          <Grid container justify="center" spacing={1}>
+            {favorites.map((favorite) => (
+              <Grid key={favorite.id} item xs={12} sm={8} md={4}>
+                <Card sx={{ m: 0.5 }}>
+                  <Link key={favorite.id} to={`/meal/${favorite.id}`}>
+                    <CardMedia
+                      component="img"
+                      height="140"
+                      image={favorite.image}
+                      title={favorite.title}
+                    />
+                  </Link>
+                  <CardContent className="recipe-card">
+                    <Typography
+                      gutterBottom
+                      component="div"
+                      className="recipe-title"
+                    >
+                      {favorite.title}
+                    </Typography>
+                    <EmailButton recipe={favorite} />
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
         </Box>
       </ThemeProvider>
     );

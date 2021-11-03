@@ -75,6 +75,15 @@ button {
   color: #3f3f3f;
   margin: 10px 20px;
 }
+
+.help-link {
+  color: #6e1916;
+}
+
+.help-link:hover {
+  color: #410e0c;
+  text-decoration: underline;
+}
 .meal-btn {
   color: #ffff;
   position: relative;

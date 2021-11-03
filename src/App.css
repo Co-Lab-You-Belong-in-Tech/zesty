@@ -1,34 +1,47 @@
+.page-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+hr {
+  max-width: 230px;
+  margin: 0 auto;
+  color: #726659;
+}
+
+p {
+  font-size: 1rem;
+}
+
+span.email-note {
+  font-size: 0.875rem;
+}
+
+button {
+  cursor: pointer;
+  font-size: 1rem;
+}
+
 .App {
   font-family: "Montserrat", sans-serif;
   text-align: center;
 }
 
-/* .Help {
+.Help .help {
   background: linear-gradient(
     360deg,
     rgba(255, 255, 255, 0) 21.44%,
     #e3a357 55.6%,
     #99311a 102%
   );
-} */
-
-.Help * {
 }
+
 .Help .container {
+  max-width: 400px;
   margin: 20px;
   padding: 10px;
   justify-content: center;
   text-align: center;
-}
-
-.Help .logo {
-  position: absolute;
-  width: 180px;
-  height: 108.22px;
-  left: 115px;
-  top: 111.5px;
-
-  /* background: url(.png); */
 }
 
 .Help .help-title {
@@ -37,63 +50,95 @@
   height: 58px;
   left: 56px;
   top: 241px;
-
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 12px;
   line-height: 24px;
-  display: flex;
+  margin: 10px 20px;
   align-items: center;
   text-align: center;
-
   color: #3f3f3f;
 }
 
-.Help .helpful-tip-item {
+.helpful-tip-item {
   position: absolute;
   width: 312.06px;
   height: 49px;
   left: 68.94px;
   top: 360px;
-
-  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   display: flex;
   align-items: center;
-
   color: #3f3f3f;
+  margin: 10px 20px;
 }
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-} */
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
+.help-link {
+  color: #6e1916;
+}
 
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.help-link:hover {
+  color: #410e0c;
+  text-decoration: underline;
+}
+.meal-btn {
+  color: #ffff;
+  position: relative;
+  width: 377px;
+  height: 46px;
+  margin: 0 15px 30px 15px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
-/* 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+  background: #6e1916;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 5px;
+}
+
+.bear {
+  font-size: 3rem;
+}
+
+.shopping-list-container {
+  margin: 5px 25px;
+}
+
+.MuiDrawer-paperAnchorLeft {
+  background-color: #6a784d;
+}
+
+.nav-link {
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+.nav-link:hover {
+  color: #e3a357;
+}
+
+.nav-icon,
+.helpScreen-icon {
+  margin: 0 10px 0 0;
+}
+
+.help-link {
+  color: #6e1916;
+}
+
+.help-link:hover {
+  color: #410e0c;
+  text-decoration: underline;
+}
+
+.help-item {
+  display: flex;
+  align-items: flex-start;
+  margin: 15px 20px;
+}
+
+.help-item p {
+  text-align: left;
+}

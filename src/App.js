@@ -15,7 +15,7 @@ import { SearchContext } from './Contexts/SearchContext'
 function App() {
   const [query, setQuery] = useState("");
   const [servings, setServings] = useState("any")
-  const [time, setTime] = useState(30)
+  const [time, setTime] = useState(60)
   const [allergies, setAllergies] = useState("")
   const [diet, setDiet] = useState("")
   let favorites = [];

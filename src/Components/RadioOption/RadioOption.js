@@ -4,7 +4,7 @@ import Radio from '@mui/material/Radio';
 import './Option.css';
 
 
-function RadioOption({ id, name, title, optionState, onChange, accordionDetailsClass }) {
+function RadioOption({ id, name, title, optionState, onChange }) {
     return (
         <div className='accordion-details'>
             <Radio 

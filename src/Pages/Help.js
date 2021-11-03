@@ -35,7 +35,7 @@ function Help() {
       <article className="help-item">
         <FeedbackIcon className="helpScreen-icon" />
         <p>As we continue to build Zesty, we'd love your feedback! Feel free to fill out our 
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQ_H9ZV5_HT71LiGWAQN-iQTdX0814dxFZk1Qdwg7kbNzQWA/viewform" className="help-link"> feedback survey </a> 
+          <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeQ_H9ZV5_HT71LiGWAQN-iQTdX0814dxFZk1Qdwg7kbNzQWA/viewform" className="help-link"> feedback survey </a> 
           or send us an <a href="mailto:zestier.than.ever@gmail.com" className="help-link">email</a> with your ideas!</p>
       </article>
       <img src={RadsImg} alt="radishes" className="rads-img" />

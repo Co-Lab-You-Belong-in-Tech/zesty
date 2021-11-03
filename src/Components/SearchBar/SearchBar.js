@@ -60,7 +60,7 @@ export default function SearchBar() {
       <div style={{ maxWidth: "100%" }}>
         <section className="search-bar">
           <form onSubmit={search}>
-            <input
+            <input className="search-field"
               type="text"
               placeholder="Search recipes and ingredients..."
               onChange={handleQueryChange}

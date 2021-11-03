@@ -22,7 +22,7 @@ function MealList() {
 
   const favoritesList = favorites.map((favorite) => {
     return (
-      <Grid key={favorite.id} item xs={12} sm={8} md={4}>
+      <Grid key={favorite.id} item xs={12} sm={6} md={4}>
         <Card sx={{ m: 0.5 }}>
           <Link key={favorite.id} to={`/meal/${favorite.id}`}>
             <CardMedia
@@ -44,18 +44,18 @@ function MealList() {
   });
 
   return (
-    <div style={{ maxWidth: "100%" }}>
+    <main className="page-container">
       <PageTitle text="My Meal List" />
       <ThemeProvider theme={theme}>
         <Box sx={{ width: "100%" }}>
-          <Grid container justify="center" spacing={1}>
+          <Grid container justify="center">
             {favorites.length > 0
               ? favoritesList
               : "Your list is empty! Go back to the Homepage to add a new meal!"}
           </Grid>
         </Box>
       </ThemeProvider>
-    </div>
+    </main>
   );
 }
 export default MealList;

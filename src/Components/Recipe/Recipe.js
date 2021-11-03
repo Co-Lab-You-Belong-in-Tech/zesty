@@ -22,21 +22,14 @@ function Recipe({ image, title }) {
             boxShadow: 2,
             mx: "auto",
             width: {
-              xs: 450,
-              sm: 650,
-              md: 850,
-              xl: 900,
+              xs: 400,
+              sm: 600,
             },
           }}
         >
           <CardMedia component="img" height="140" image={image} title={title} />
           <CardContent className="recipe-card">
-            <Typography
-              gutterBottom
-              // variant="h6"
-              component="div"
-              className="recipe-title"
-            >
+            <Typography gutterBottom component="div" className="recipe-title">
               {title}
             </Typography>
           </CardContent>

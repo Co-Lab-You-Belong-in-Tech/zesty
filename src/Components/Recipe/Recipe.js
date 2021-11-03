@@ -31,12 +31,7 @@ function Recipe({ image, title }) {
         >
           <CardMedia component="img" height="140" image={image} title={title} />
           <CardContent className="recipe-card">
-            <Typography
-              gutterBottom
-              // variant="h6"
-              component="div"
-              className="recipe-title"
-            >
+            <Typography gutterBottom component="div" className="recipe-title">
               {title}
             </Typography>
           </CardContent>

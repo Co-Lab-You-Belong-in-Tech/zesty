@@ -5,17 +5,17 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="home">
+    <main className="page-container">
       <PageTitle text="Hello! What are you planning to make?" />
-      <div>
+      <p>
         New to Zesty? Click{" "}
         <Link to="/help">
           <span className="help-link">here</span>
         </Link>{" "}
         to learn about the app!
-      </div>
+      </p>
       <SearchBar />
-    </div>
+    </main>
   );
 }
 

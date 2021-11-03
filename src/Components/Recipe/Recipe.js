@@ -22,10 +22,8 @@ function Recipe({ image, title }) {
             boxShadow: 2,
             mx: "auto",
             width: {
-              xs: 450,
-              sm: 650,
-              md: 850,
-              xl: 900,
+              xs: 400,
+              sm: 600,
             },
           }}
         >

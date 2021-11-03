@@ -75,8 +75,10 @@ export default function SearchBar() {
             </button>
           </form>
         </section>
+        <div className="recipe-list">
+          <RecipeList recipeData={showRecipes} />
+        </div>
       </div>
-      <RecipeList recipeData={showRecipes} />
     </>
   );
 }

@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     flexGrow: "1",
-    cursor: "pointer",
     marginRight: theme.spacing(5),
+    backgroundColor: "transparent"
   },
   logoImage: {
     width: "100px",

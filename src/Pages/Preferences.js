@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 import { SearchContext } from "../Contexts/SearchContext";
 
-import { makeStyles } from "@mui/styles";
-import { createTheme } from "@mui/material";
-
 import { servingRange } from "../utils/servingRange";
 import { maxTimeOptions } from "../utils/maxTimeOptions";
 import { allergyOptions } from "../utils/allergyOptions";
@@ -37,43 +34,6 @@ function Preferences() {
     setDiet(e.target.value);
   };
 
-  const accordionTheme = createTheme({
-    breakpoints: {
-      values: {
-        desktop: 600,
-      },
-    },
-  });
-
-  const useStyles = makeStyles(() => ({
-    accordion: {
-      marginBottom: 0,
-      background: 'white'
-    },
-    accordionDetails: {
-      backgroundColor: 'white'
-    },
-    allergyList: {
-      display: "grid",
-      gridTemplateColumns: "repeat(3, auto)",
-      margin: 0,
-      [accordionTheme.breakpoints.up("desktop")]: {
-        gridTemplateColumns: "repeat(4, auto)",
-      },
-    },
-    allergy: {
-      margin: 0,
-      marginRight: 5,
-      marginBottom: 5,
-      padding: 5,
-      backgroundColor: "#F3F3F3",
-      borderRadius: 5,
-      textAlign: "center",
-    },
-  }));
-
-  const classes = useStyles();
-
   return (
     <main className="page-container">
       <PageTitle text="Set Your Preferences!" />
@@ -87,9 +47,6 @@ function Preferences() {
         options={servingRange}
         onChange={handleServings}
         name="servings"
-        accordionClass={classes.accordion}
-        accordionSummaryClass={classes.accordionSummary}
-        accordionDetailsClass={classes.accordionDetails}
       />
       <PreferenceOption
         panelExpanded="panel2"
@@ -100,16 +57,10 @@ function Preferences() {
         options={maxTimeOptions}
         onChange={handleTime}
         name="time"
-        accordionClass={classes.accordion}
-        accordionDetailsClass={classes.accordionDetails}
       />
       <AllergiesOption
         allergyOptions={allergyOptions}
         setAllergies={setAllergies}
-        accordionClass={classes.accordion}
-        allergyListClass={classes.allergyList}
-        allergyClass={classes.allergy}        
-        accordionDetailsClass={classes.accordionDetails}
       />
       <PreferenceOption
         panelExpanded="panel4"
@@ -120,9 +71,8 @@ function Preferences() {
         options={dietOptions}
         onChange={handleDiet}
         name="diet"
-        accordionClass={classes.accordion}
-        accordionDetailsClass={classes.accordionDetails}
       />
+      <p>We apologize for the glitches on this page. We are working to fix them :)</p>
     </main>
   );
 }

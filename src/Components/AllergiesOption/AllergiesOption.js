@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+
+import { makeStyles } from "@mui/styles";
+import { createTheme } from "@mui/material";
+
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -6,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckboxOption from '../CheckboxOption/CheckboxOption';
 
-function AllergiesOption({ allergyOptions, setAllergies, accordionClass, allergyListClass, allergyClass, accordionDetailsClass }) {
+function AllergiesOption({ allergyOptions, setAllergies }) {
   const [expanded, setExpanded] = useState(false);
   const [checkedState, setCheckedState] = useState(
     new Array(allergyOptions.length).fill(false)
@@ -33,11 +37,49 @@ function AllergiesOption({ allergyOptions, setAllergies, accordionClass, allergy
     setExpanded(isExpanded ? panel : false);
   };
 
+  const accordionTheme = createTheme({
+    breakpoints: {
+      values: {
+        desktop: 600,
+      },
+    },
+  });
+
+  const useStyles = makeStyles(() => ({
+    accordion: {
+      marginBottom: 0,
+      background: 'white'
+    },
+    accordionDetails: {
+      backgroundColor: 'white'
+    },
+    allergyList: {
+      display: "grid",
+      gridTemplateColumns: "repeat(3, auto)",
+      margin: 0,
+      [accordionTheme.breakpoints.up("desktop")]: {
+        gridTemplateColumns: "repeat(4, auto)",
+      },
+    },
+    allergy: {
+      margin: 0,
+      marginRight: 5,
+      marginBottom: 5,
+      padding: 5,
+      backgroundColor: "#F3F3F3",
+      borderRadius: 5,
+      textAlign: "center",
+    },
+  }));
+
+  const classes = useStyles();
+
+
   return (
     <Accordion 
       expanded={expanded === 'panel3'} 
       onChange={handleChange('panel3')}
-      className={accordionClass}
+      className={classes.accordion}
       TransitionProps={{ unmountOnExit: true }}
     >
       <AccordionSummary
@@ -50,16 +92,16 @@ function AllergiesOption({ allergyOptions, setAllergies, accordionClass, allergy
           Allergies
         </Typography>
         <Typography sx={{ color: 'text.secondary', fontFamily: 'Montserrat', textAlign: 'left', fontSize: '1rem' }}>
-          <div className={allergyListClass}>
+          <div className={classes.allergyList}>
             {allergyArray.map((allergy) => {
               return (
-                <p className={allergyClass} key={allergy}>{allergy}</p>
+                <p className={classes.allergy} key={allergy}>{allergy}</p>
               )
             })}
           </div>
         </Typography>
       </AccordionSummary>
-      <AccordionDetails className={accordionDetailsClass}>
+      <AccordionDetails className={classes.accordionDetails}>
         {allergyOptions.map((option, index) => {
           return (
             <CheckboxOption 

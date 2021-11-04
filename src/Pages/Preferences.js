@@ -48,6 +48,10 @@ function Preferences() {
   const useStyles = makeStyles(() => ({
     accordion: {
       marginBottom: 0,
+      background: 'white'
+    },
+    accordionDetails: {
+      backgroundColor: 'white'
     },
     allergyList: {
       display: "grid",
@@ -84,6 +88,8 @@ function Preferences() {
         onChange={handleServings}
         name="servings"
         accordionClass={classes.accordion}
+        accordionSummaryClass={classes.accordionSummary}
+        accordionDetailsClass={classes.accordionDetails}
       />
       <PreferenceOption
         panelExpanded="panel2"
@@ -95,13 +101,15 @@ function Preferences() {
         onChange={handleTime}
         name="time"
         accordionClass={classes.accordion}
+        accordionDetailsClass={classes.accordionDetails}
       />
       <AllergiesOption
         allergyOptions={allergyOptions}
         setAllergies={setAllergies}
         accordionClass={classes.accordion}
         allergyListClass={classes.allergyList}
-        allergyClass={classes.allergy}
+        allergyClass={classes.allergy}        
+        accordionDetailsClass={classes.accordionDetails}
       />
       <PreferenceOption
         panelExpanded="panel4"
@@ -113,6 +121,7 @@ function Preferences() {
         onChange={handleDiet}
         name="diet"
         accordionClass={classes.accordion}
+        accordionDetailsClass={classes.accordionDetails}
       />
     </main>
   );

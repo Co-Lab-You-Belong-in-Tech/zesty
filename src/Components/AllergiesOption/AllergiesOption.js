@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckboxOption from '../CheckboxOption/CheckboxOption';
 
-function AllergiesOption({ allergyOptions, setAllergies, accordionClass, allergyListClass, allergyClass }) {
+function AllergiesOption({ allergyOptions, setAllergies, accordionClass, allergyListClass, allergyClass, accordionDetailsClass }) {
   const [expanded, setExpanded] = useState(false);
   const [checkedState, setCheckedState] = useState(
     new Array(allergyOptions.length).fill(false)
@@ -44,6 +44,7 @@ function AllergiesOption({ allergyOptions, setAllergies, accordionClass, allergy
         expandIcon={<ExpandMoreIcon />}
         aria-controls='panel3bh-content'
         id='panel3bh-header'
+        sx={{ bgcolor: 'white' }}
       >
         <Typography sx={{ width: '35%', flexShrink: 0, fontFamily: 'Montserrat', fontWeight: 500, textAlign: 'left', fontSize: '1.125rem' }}>
           Allergies
@@ -58,7 +59,7 @@ function AllergiesOption({ allergyOptions, setAllergies, accordionClass, allergy
           </div>
         </Typography>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails className={accordionDetailsClass}>
         {allergyOptions.map((option, index) => {
           return (
             <CheckboxOption 

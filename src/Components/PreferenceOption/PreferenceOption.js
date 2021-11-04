@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import RadioOption from '../RadioOption/RadioOption';
 
-function PreferenceOption({ panelExpanded, title, ariaControls, id, options, onChange, optionState, name, accordionClass, accordionDetailsClass }) {
+function PreferenceOption({ panelExpanded, title, ariaControls, id, options, onChange, optionState, name, accordionClass, accordionSummaryClass, accordionDetailsClass }) {
     const [expanded, setExpanded] = useState(false);
 
     const handleChange = (panel) => (event, isExpanded) => {
@@ -24,15 +24,16 @@ function PreferenceOption({ panelExpanded, title, ariaControls, id, options, onC
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls={ariaControls}
                 id={id}
+                sx={{ bgcolor: 'white' }}
             >
-                <Typography sx={{ width: '40%', flexShrink: 0, fontFamily: 'Montserrat', fontWeight: 500, textAlign: 'left', fontSize: '1.125rem' }}>
+                <Typography sx={{ fontFamily: 'Montserrat', fontWeight: 500, textAlign: 'left', fontSize: '1.125rem' }}>
                     {title}
                 </Typography>
-                <Typography sx={{ color: 'text.secondary', fontFamily: 'Montserrat', fontSize: '1rem' }}>
+                <Typography sx={{ marginLeft: 5, color: 'text.secondary', fontFamily: 'Montserrat', fontSize: '1rem' }}>
                     {optionState}
                 </Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails className={accordionDetailsClass}>
                 {options.map((option) => {
                     return (
                         <RadioOption 

@@ -88,10 +88,10 @@ function AllergiesOption({ allergyOptions, setAllergies }) {
         id='panel3bh-header'
         sx={{ bgcolor: 'white' }}
       >
-        <Typography sx={{ width: '35%', flexShrink: 0, fontFamily: 'Montserrat', fontWeight: 500, textAlign: 'left', fontSize: '1.125rem' }}>
+        <Typography sx={{ flexShrink: 0, fontFamily: 'Montserrat', fontWeight: 500, textAlign: 'left', fontSize: '1.125rem' }}>
           Allergies
         </Typography>
-        <Typography sx={{ color: 'text.secondary', fontFamily: 'Montserrat', textAlign: 'left', fontSize: '1rem' }}>
+        <Typography sx={{ marginLeft: 5, color: 'text.secondary', fontFamily: 'Montserrat', textAlign: 'left', fontSize: '1rem' }}>
           <div className={classes.allergyList}>
             {allergyArray.map((allergy) => {
               return (

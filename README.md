@@ -35,5 +35,10 @@
 ##### To Start Server
  <p><code>npm start</code></p>
  
+## Reflections
 
+<p>To be written </p>
 
+## Future Development
+
+<p>To be written </p>
